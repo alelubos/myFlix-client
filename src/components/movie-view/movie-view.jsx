@@ -7,7 +7,11 @@ class MovieView extends Component {
     return (
       <div className="movie-view">
         <div className="movie-poster">
-          <img src={movie.imageURL} alt="Poster of current movie" />
+          <img
+            src={movie.imageURL}
+            crossorigin="anonymous"
+            alt="Poster of current movie"
+          />
         </div>
         <div className="movie-title">
           <span className="label">Title</span>

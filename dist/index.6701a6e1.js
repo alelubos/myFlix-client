@@ -25432,7 +25432,6 @@ class MainView extends _reactDefault.default.Component {
             children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCardDefault.default, {
                     movie: movie,
                     setSelectedMovie: this.setSelectedMovie,
-                    resetSelectedMovie: this.resetSelectedMovie,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 105
@@ -25539,6 +25538,7 @@ class MovieView extends _react.Component {
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movie.imageURL,
+                        crossorigin: "anonymous",
                         alt: "Poster of current movie",
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
@@ -25549,37 +25549,6 @@ class MovieView extends _react.Component {
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "movie-title",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 12
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "label",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 13
-                            },
-                            __self: this,
-                            children: "Title"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs("span", {
-                            className: "value",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 14
-                            },
-                            __self: this,
-                            children: [
-                                ": ",
-                                movie.title
-                            ]
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-rating",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 16
@@ -25593,7 +25562,7 @@ class MovieView extends _react.Component {
                                 lineNumber: 17
                             },
                             __self: this,
-                            children: "Rated"
+                            children: "Title"
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                             className: "value",
@@ -25604,13 +25573,44 @@ class MovieView extends _react.Component {
                             __self: this,
                             children: [
                                 ": ",
+                                movie.title
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-rating",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 20
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 21
+                            },
+                            __self: this,
+                            children: "Rated"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 22
+                            },
+                            __self: this,
+                            children: [
+                                ": ",
                                 movie.rating
                             ]
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx("span", {
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 19
+                                lineNumber: 23
                             },
                             __self: this,
                             children: "⭐"
@@ -25619,37 +25619,6 @@ class MovieView extends _react.Component {
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "movie-released",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 21
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "label",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 22
-                            },
-                            __self: this,
-                            children: "Released"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs("span", {
-                            className: "value",
-                            __source: {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 23
-                            },
-                            __self: this,
-                            children: [
-                                ": ",
-                                movie.released
-                            ]
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-director",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 25
@@ -25663,7 +25632,7 @@ class MovieView extends _react.Component {
                                 lineNumber: 26
                             },
                             __self: this,
-                            children: "Director"
+                            children: "Released"
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                             className: "value",
@@ -25674,13 +25643,13 @@ class MovieView extends _react.Component {
                             __self: this,
                             children: [
                                 ": ",
-                                movie.director
+                                movie.released
                             ]
                         })
                     ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-description",
+                    className: "movie-director",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 29
@@ -25694,7 +25663,7 @@ class MovieView extends _react.Component {
                                 lineNumber: 30
                             },
                             __self: this,
-                            children: "Description"
+                            children: "Director"
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                             className: "value",
@@ -25705,13 +25674,13 @@ class MovieView extends _react.Component {
                             __self: this,
                             children: [
                                 ": ",
-                                movie.description
+                                movie.director
                             ]
                         })
                     ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-genre",
+                    className: "movie-description",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 33
@@ -25725,13 +25694,44 @@ class MovieView extends _react.Component {
                                 lineNumber: 34
                             },
                             __self: this,
-                            children: "Genre"
+                            children: "Description"
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                             className: "value",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
                                 lineNumber: 35
+                            },
+                            __self: this,
+                            children: [
+                                ": ",
+                                movie.description
+                            ]
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-genre",
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 37
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 38
+                            },
+                            __self: this,
+                            children: "Genre"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs("span", {
+                            className: "value",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 39
                             },
                             __self: this,
                             children: [
@@ -25746,7 +25746,7 @@ class MovieView extends _react.Component {
                     ,
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 37
+                        lineNumber: 41
                     },
                     __self: this,
                     children: "↩ Back to Movies"

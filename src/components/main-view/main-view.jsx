@@ -106,7 +106,6 @@ export default class MainView extends React.Component {
             key={movie._id}
             movie={movie}
             setSelectedMovie={this.setSelectedMovie}
-            resetSelectedMovie={this.resetSelectedMovie}
           >
             {movie.title}
           </MovieCard>
