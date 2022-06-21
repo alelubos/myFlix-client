@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 class MovieCard extends Component {
   // state = {  }
   render() {
@@ -11,5 +12,13 @@ class MovieCard extends Component {
     );
   }
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    releaseYear: PropTypes.number.isRequired,
+  }).isRequired,
+  setSelectedMovie: PropTypes.func.isRequired,
+};
 
 export default MovieCard;
