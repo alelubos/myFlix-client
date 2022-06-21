@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import MovieCard from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
 
@@ -9,6 +12,8 @@ export default class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null,
+      user: null,
+      isRegistered: true,
     };
   }
 
@@ -19,7 +24,6 @@ export default class MainView extends React.Component {
         this.setState({
           movies: response.data,
         });
-        console.log(response.data[0]);
       })
       .catch((err) => console.log('Error: ' + err));
   }
@@ -28,8 +32,35 @@ export default class MainView extends React.Component {
     this.setState({ selectedMovie: movie });
   };
 
+  onLoggedIn = (user) => {
+    this.setState({ user });
+  };
+
+  setRegistered = (value) => {
+    this.setState({ isRegistered: value });
+  };
+
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user, isRegistered } = this.state;
+
+    // If user is not registered, render RegistrationView
+    if (!isRegistered)
+      return (
+        <RegistrationView
+          onLoggedIn={(user) => this.onLoggedIn(user)}
+          setRegistered={this.setRegistered}
+        />
+      );
+
+    // If there's no user, the LoginView is rendered.
+    // If there's a user logged in, the user details are passed as a prop to LoginView
+    if (!user)
+      return (
+        <LoginView
+          onLoggedIn={(user) => this.onLoggedIn(user)}
+          setRegistered={this.setRegistered}
+        />
+      );
 
     // Display MovieView OR message of empty list
     if (selectedMovie)
