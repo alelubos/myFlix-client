@@ -6,7 +6,7 @@ class MovieCard extends Component {
     return (
       <div className="movie-card" onClick={() => setSelectedMovie(movie)}>
         <span>▻ </span>
-        {movie.title} ({movie.released})
+        {movie.title} ({movie.releaseYear})
       </div>
     );
   }
