@@ -56,6 +56,10 @@ export function RegistrationView(props) {
           Submit
         </button>
       </form>
+      <p>
+        Already registered? <br />
+        <button onClick={() => props.setRegistered(true)}>Log In</button>
+      </p>
     </>
   );
 }
