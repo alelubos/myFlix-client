@@ -1,10 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import MovieCard from '../movie-card/movie-card';
 import MovieView from '../movie-view/movie-view';
+
+import './main-view.scss';
 
 export default class MainView extends React.Component {
   constructor() {
@@ -83,17 +86,19 @@ export default class MainView extends React.Component {
 
     // Display List of Movies
     return (
-      <div className="main-view">
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            setSelectedMovie={this.setSelectedMovie}
-          >
-            {movie.title}
-          </MovieCard>
-        ))}
-      </div>
+      <Container>
+        <Row className="row-width mx-auto justify-content-center">
+          {movies.map((movie) => (
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              setSelectedMovie={this.setSelectedMovie}
+            >
+              {movie.title}
+            </MovieCard>
+          ))}
+        </Row>
+      </Container>
     );
   }
 }

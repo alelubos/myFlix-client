@@ -4,7 +4,7 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 1em;
-  background-color: #e5e5e5;
+  background: hsl(240, 12%, 43%);
 }
 
 .my-flix {
@@ -23,9 +23,11 @@ body {
   padding: 1em;
   background-color: white;
   width: 350px;
+  box-shadow: 4px 4px 7px hsla(0, 0, 0, 0.5);
+  border-radius: 3px;
 }
 .label {
-  font-weight: 900;
+  font-weight: 700;
   font-variant-caps: small-caps;
   text-decoration: underline;
   margin-top: 2em;
