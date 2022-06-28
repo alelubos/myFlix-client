@@ -19,17 +19,17 @@ class MovieCard extends Component {
             src={movie.imageURL}
             className="poster position-relative"
           />
-          <Card.ImgOverlay>
+          {/* <Card.ImgOverlay>
             <Badge
               className="top-right-position"
               pill
-              bg="info"
+              bg="dark"
               text="light"
               style={{ fontSize: '.9rem', fontWeight: '500' }}
             >
               {movie.rating}⭐
             </Badge>
-          </Card.ImgOverlay>
+          </Card.ImgOverlay> */}
           <Card.Body>
             <span className="card-title">{movie.title} </span>
             <span className="card-year">({movie.releaseYear})</span>

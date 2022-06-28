@@ -4071,32 +4071,6 @@ class MovieCard extends _react.Component {
                         },
                         __self: this
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.ImgOverlay, {
-                        __source: {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 22
-                        },
-                        __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Badge, {
-                            className: "top-right-position",
-                            pill: true,
-                            bg: "info",
-                            text: "light",
-                            style: {
-                                fontSize: '.9rem',
-                                fontWeight: '500'
-                            },
-                            __source: {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 23
-                            },
-                            __self: this,
-                            children: [
-                                movie.rating,
-                                "⭐"
-                            ]
-                        })
-                    }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                         __source: {
                             fileName: "src/components/movie-card/movie-card.jsx",
@@ -38704,7 +38678,7 @@ class MovieView extends _react.Component {
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                         className: "my-3 mb-0",
-                                        variant: "outline-primary bottom",
+                                        variant: "outline-primary",
                                         onClick: ()=>setSelectedMovie(null)
                                         ,
                                         __source: {

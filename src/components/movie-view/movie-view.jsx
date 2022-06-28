@@ -49,7 +49,7 @@ class MovieView extends Component {
                 </div>
                 <Button
                   className="my-3 mb-0"
-                  variant="outline-primary bottom"
+                  variant="outline-primary"
                   onClick={() => setSelectedMovie(null)}
                 >
                   Back to Movies
