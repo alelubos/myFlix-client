@@ -86,7 +86,7 @@ export default class MainView extends React.Component {
 
     // Display List of Movies
     return (
-      <Container>
+      <Container fluid>
         <Row className="row-width mx-auto justify-content-center">
           {movies.map((movie) => (
             <MovieCard

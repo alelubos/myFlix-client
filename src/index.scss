@@ -1,23 +1,13 @@
-$color: steelblue;
-
 body {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Barlow', sans-serif !important;
   font-size: 1em;
-  background: hsl(240, 12%, 43%);
+  background: rgb(220, 220, 220) !important;
 }
 
 .my-flix {
-  color: $color;
   font-size: 2em;
 }
-.movie-card {
-  padding: 0.19em;
-  cursor: pointer;
-}
-.movie-card:hover {
-  background-color: lightblue;
-}
+
 .movie-view {
   margin: 1em;
   padding: 1em;
@@ -26,9 +16,11 @@ body {
   box-shadow: 4px 4px 7px hsla(0, 0, 0, 0.5);
   border-radius: 3px;
 }
-.label {
+
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-bold {
   font-weight: 700;
-  font-variant-caps: small-caps;
-  text-decoration: underline;
-  margin-top: 2em;
 }

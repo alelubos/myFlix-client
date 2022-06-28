@@ -1,4 +1,20 @@
-.image {
+.poster {
   object-fit: cover;
   object-position: 50% 50%;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.specs {
+  font-size: 1.6rem;
+  color: white;
+}
+
+.year {
+  font-weight: 300;
+  font-size: 2rem;
 }

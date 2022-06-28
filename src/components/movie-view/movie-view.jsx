@@ -9,54 +9,56 @@ class MovieView extends Component {
     const { movie, genreName, directorName, setSelectedMovie } = this.props;
     if (!movie) return <div></div>;
     return (
-      <Container className="fluid m-0 mt-2">
-        <Row>
-          <Col sm={12} md={7} lg={{ span: 6, offset: 1 }}>
-            <img
-              className="image"
-              src={movie.imageURL}
-              alt="Poster from the movie"
-            />
-          </Col>
-          <Col md={5}>
-            <Container>
-              <div className="display-4">{movie.title}</div>
-
-              <div className="mt-3">
-                <span className="label">Director</span>
-                <span className="value">: {directorName}</span>
-              </div>
-
+      <Row className="m-1 justify-content-center">
+        <Col
+          className="container p-3 justify-content-center"
+          md={9}
+          lg={7}
+          xl={6}
+        >
+          <Row className="justify-content-start">
+            <Col sm={'auto'} className="">
+              <img
+                crossOrigin="anonymous"
+                className="poster"
+                src={movie.imageURL}
+                alt="Poster from the movie"
+              />
+            </Col>
+            <Col>
               <div className="mt-2">
-                <span className="label">Rated</span>
-                <span className="value">: {movie.rating}</span>
-                <span>⭐</span>
-              </div>
-              <div className="mt-2">
-                <span className="label">Released</span>
-                <span className="value">: {movie.releaseYear}</span>
-              </div>
+                <div className="title">
+                  {movie.title}{' '}
+                  <span className="year">({movie.releaseYear})</span>
+                </div>
 
-              <div className="mt-2">
-                <span className="label">Genre</span>
-                <span className="value">: {genreName}</span>
-              </div>
+                <div className="specs mt-2 bg-info">
+                  <span className="value ml-2">{genreName} </span>
+                  <span className="mx-2">|</span>
+                  <span className="value"> {movie.rating}</span> <span>⭐</span>
+                </div>
 
-              <div className="mt-2">
-                <span className="label">Description</span>
-                <span className="value">: {movie.description}</span>
+                <div className="mt-3">
+                  <span className="fw-bold">Director</span>
+                  <span className="value">: {directorName}</span>
+                </div>
+
+                <div className="mt-2">
+                  <span className="fw-bold">Overview</span>
+                  <span className="value">: {movie.description}</span>
+                </div>
+                <Button
+                  className="my-3 mb-0"
+                  variant="outline-primary bottom"
+                  onClick={() => setSelectedMovie(null)}
+                >
+                  Back to Movies
+                </Button>
               </div>
-              <Button
-                className="my-3"
-                variant="outline-primary"
-                onClick={() => setSelectedMovie(null)}
-              >
-                Back to Movies
-              </Button>
-            </Container>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     );
   }
 }
