@@ -4051,7 +4051,7 @@ class MovieCard extends _react.Component {
                 className: "my-2 movie-card",
                 style: {
                     maxWidth: '16rem',
-                    minHeight: '18rem'
+                    minHeight: '16rem'
                 },
                 onClick: ()=>setSelectedMovie(movie)
                 ,
@@ -38505,7 +38505,7 @@ class MovieView extends _react.Component {
             __self: this
         }));
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-            className: "m-1 justify-content-center",
+            className: "m-1 justify-content-center view-background",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 12

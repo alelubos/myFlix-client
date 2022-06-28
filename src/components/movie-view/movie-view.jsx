@@ -9,7 +9,7 @@ class MovieView extends Component {
     const { movie, genreName, directorName, setSelectedMovie } = this.props;
     if (!movie) return <div></div>;
     return (
-      <Row className="m-1 justify-content-center">
+      <Row className="m-1 justify-content-center view-background">
         <Col
           className="container p-3 justify-content-center"
           md={9}

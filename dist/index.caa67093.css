@@ -57,6 +57,10 @@ body {
   font-weight: 300;
   line-height: 1.4rem;
 }
+.view-background {
+  background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(220, 220, 220) 15%, rgb(220, 220, 220) 85%, rgb(170, 170, 170) 100%);
+}
+
 .poster {
   object-fit: cover;
   object-position: 50% 50%;

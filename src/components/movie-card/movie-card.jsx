@@ -11,7 +11,7 @@ class MovieCard extends Component {
       <Col xs={{ span: 10, offset: 2 }} sm={{ span: 5, offset: 0 }} lg={4}>
         <Card
           className="my-2 movie-card"
-          style={{ maxWidth: '16rem', minHeight: '18rem' }}
+          style={{ maxWidth: '16rem', minHeight: '16rem' }}
           onClick={() => setSelectedMovie(movie)}
         >
           <Card.Img
