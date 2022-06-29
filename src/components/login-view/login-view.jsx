@@ -6,7 +6,7 @@ import axios from 'axios';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // Declare hook for each input in case of invalid
+  // Declare hook for each input error message (in case of invalid)
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
 
@@ -67,7 +67,9 @@ export function LoginView(props) {
                     placeholder="Enter you username"
                   />
                   {/* Code to Display username validation error */}
-                  {usernameErr && <p>{usernameErr}</p>}
+                  {usernameErr && (
+                    <p className="validation-message">{usernameErr}</p>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -79,7 +81,9 @@ export function LoginView(props) {
                     placeholder="Enter your password"
                   />
                   {/* Code to Display password validation error */}
-                  {passwordErr && <p>{passwordErr}</p>}
+                  {passwordErr && (
+                    <p className="validation-message">{passwordErr}</p>
+                  )}
                 </Form.Group>
 
                 <Button

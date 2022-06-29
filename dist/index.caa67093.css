@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Barlow", sans-serif !important;
   font-size: 1em;
@@ -23,6 +24,17 @@ body {
 
 .fw-bold {
   font-weight: 700;
+}
+
+.validation-message {
+  color: red;
+  font-weight: 500;
+  padding-left: 5px;
+  font-style: italic;
+}
+
+.validation-message::before {
+  content: "↪ ";
 }
 .position-relative {
   position: relative;

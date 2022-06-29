@@ -24,3 +24,14 @@ body {
 .fw-bold {
   font-weight: 700;
 }
+
+.validation-message {
+  color: red;
+  font-weight: 500;
+  padding-left: 5px;
+  font-style: italic;
+}
+
+.validation-message::before {
+  content: '↪ ';
+}

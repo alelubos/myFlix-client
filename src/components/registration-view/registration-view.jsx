@@ -7,14 +7,83 @@ export function RegistrationView(props) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
+  // Declare hook for each input error message (when invalid)
+  const [values, setValues] = useState({
+    usernameErr: '',
+    passwordErr: '',
+    emailErr: '',
+    birthdayErr: '',
+  });
+
+  const validate = () => {
+    let isReq = true;
+    setValues((prev) => {
+      return {
+        usernameErr: '',
+        passwordErr: '',
+        emailErr: '',
+        birthdayErr: '',
+      };
+    });
+    if (!username) {
+      // setValues re-defines values through a callback that receives
+      // the previous state of values & must return values updated
+      setValues((prevValues) => {
+        return { ...prevValues, usernameErr: 'Username is required.' };
+      });
+      isReq = false;
+    } else if (username.length < 2) {
+      setValues((prevValues) => {
+        return {
+          ...prevValues,
+          usernameErr: 'Username must be at least 2 characters long.',
+        };
+      });
+    }
+    if (!password) {
+      setValues((prevValues) => {
+        return { ...prevValues, passwordErr: 'Password is required.' };
+      });
+      isReq = false;
+    } else if (password.length < 6) {
+      setValues((prevValues) => {
+        return {
+          ...prevValues,
+          passwordErr: 'Password must be at least 6 characters long.',
+        };
+      });
+      isReq = false;
+    }
+    if (!email) {
+      setValues({
+        ...values,
+        emailErr: 'Email is required.',
+      });
+      isReq = false;
+    } else if (email.indexOf('@') === -1) {
+      setValues((prevValues) => {
+        return { ...prevValues, emailErr: 'Enter a valid email address.' };
+      });
+      isReg = false;
+    }
+    if (!birthday) {
+      setValues((prevValues) => {
+        return { ...prevValues, birthdayErr: 'Enter a valid date.' };
+      });
+      isReq = false;
+    }
+    return isReq;
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for registration */
-    /* then call props.onLoggedIn(username) */
-    props.setRegistered(true);
-    props.onLoggedIn(username);
+    const isReq = validate();
+    if (isReq) {
+      /* Send a request to the server for registration */
+
+      props.setRegistered(true);
+      props.onLoggedIn(values);
+    }
   };
 
   return (
@@ -33,7 +102,11 @@ export function RegistrationView(props) {
                     onChange={(event) => setUsername(event.target.value)}
                     placeholder="Enter your username"
                   />
+                  {values.usernameErr && (
+                    <p className="validation-message">{values.usernameErr}</p>
+                  )}
                 </Form.Group>
+
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
@@ -42,7 +115,11 @@ export function RegistrationView(props) {
                     onChange={(event) => setPassword(event.target.value)}
                     placeholder="Enter your password"
                   />
+                  {values.passwordErr && (
+                    <p className="validation-message">{values.passwordErr}</p>
+                  )}
                 </Form.Group>
+
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
@@ -51,16 +128,23 @@ export function RegistrationView(props) {
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder="Enter your email"
                   />
+                  {values.emailErr && (
+                    <p className="validation-message">{values.emailErr}</p>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label>Birthdate</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="date"
                     value={birthday}
                     onChange={(event) => setBirthday(event.target.value)}
-                    placeholder="YYYY-MM-DD"
+                    // placeholder="Enter your birthdate."
+                    // pattern="/^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/"
                   />
+                  {values.birthdayErr && (
+                    <p className="validation-message">{values.birthdayErr}</p>
+                  )}
                 </Form.Group>
 
                 <Button
