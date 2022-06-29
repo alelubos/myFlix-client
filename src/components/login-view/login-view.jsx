@@ -6,23 +6,48 @@ import axios from 'axios';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  // Declare hook for each input in case of invalid
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+
+  // Validate user inputs
+  const validate = () => {
+    let isReq = true;
+    if (!username) {
+      setUsernameErr('Username is required.');
+      isReq = false;
+    } else if (username.length < 2) {
+      setUsernameErr('Username must be at least 2 characters long.');
+      isReq = false;
+    }
+    if (!password) {
+      setPasswordErr('Password is required.');
+      isReq = false;
+    } else if (password.length < 6) {
+      setPasswordErr('Password must be at least 6 characters long.');
+      isReq = false;
+    }
+    return isReq;
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication */
-    axios
-      .post('https://top-flix.herokuapp.com/login', {
-        username: username,
-        password: password,
-      })
-      .then((res) => {
-        const data = res.data;
-        props.onLoggedIn(data);
-      })
-      .catch((err) => {
-        console.log('No such user.');
-      });
+    const isReq = validate();
+    if (isReq) {
+      /* Send a request to the server for authentication */
+      axios
+        .post('https://top-flix.herokuapp.com/login', {
+          username: username,
+          password: password,
+        })
+        .then((res) => {
+          const data = res.data;
+          props.onLoggedIn(data);
+        })
+        .catch((err) => {
+          console.log('No such user.');
+        });
+    }
   };
 
   return (
@@ -41,7 +66,10 @@ export function LoginView(props) {
                     onChange={(event) => setUsername(event.target.value)}
                     placeholder="Enter you username"
                   />
+                  {/* Code to Display username validation error */}
+                  {usernameErr && <p>{usernameErr}</p>}
                 </Form.Group>
+
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
@@ -50,12 +78,21 @@ export function LoginView(props) {
                     onChange={(event) => setPassword(event.target.value)}
                     placeholder="Enter your password"
                   />
+                  {/* Code to Display password validation error */}
+                  {passwordErr && <p>{passwordErr}</p>}
                 </Form.Group>
-                <Button className="mt-3" type="submit" onClick={handleSubmit}>
+
+                <Button
+                  variant="primary"
+                  className="mt-3"
+                  type="submit"
+                  onClick={handleSubmit}
+                >
                   Submit
                 </Button>
               </Form>
             </Card.Body>
+
             <Card.Footer>
               <Button
                 className="ma-0 col-10 offset-1"

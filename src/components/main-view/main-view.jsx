@@ -26,8 +26,8 @@ export default class MainView extends React.Component {
       this.setState({
         user: localStorage.getItem('user'),
       });
+      this.getMovies(accessToken);
     }
-    this.getMovies(accessToken);
   }
 
   getMovies(token) {
