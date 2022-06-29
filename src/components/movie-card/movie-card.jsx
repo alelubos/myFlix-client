@@ -8,7 +8,12 @@ class MovieCard extends Component {
   render() {
     const { movie, setSelectedMovie } = this.props;
     return (
-      <Col xs={{ span: 10, offset: 2 }} sm={{ span: 5, offset: 0 }} lg={4}>
+      <Col
+        xs={{ span: 10, offset: 2 }}
+        sm={{ span: 6, offset: 0 }}
+        lg={4}
+        xl={3}
+      >
         <Card
           className="my-2 movie-card"
           style={{ maxWidth: '16rem', minHeight: '16rem' }}
