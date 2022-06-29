@@ -21,8 +21,20 @@ export default class MainView extends React.Component {
   }
 
   componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user'),
+      });
+    }
+    this.getMovies(accessToken);
+  }
+
+  getMovies(token) {
     axios
-      .get('https://top-flix.herokuapp.com/movies')
+      .get('https://top-flix.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         this.setState({
           movies: response.data,
@@ -31,16 +43,22 @@ export default class MainView extends React.Component {
       .catch((err) => console.log('Error: ' + err));
   }
 
-  setSelectedMovie = (movie) => {
-    this.setState({ selectedMovie: movie });
-  };
+  onLoggedIn = (authData) => {
+    console.log(authData);
+    this.setState({ user: authData.user.username });
 
-  onLoggedIn = (user) => {
-    this.setState({ user });
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.username);
+
+    this.getMovies(authData.token);
   };
 
   setRegistered = (value) => {
     this.setState({ isRegistered: value });
+  };
+
+  setSelectedMovie = (movie) => {
+    this.setState({ selectedMovie: movie });
   };
 
   render() {
@@ -50,7 +68,7 @@ export default class MainView extends React.Component {
     if (!isRegistered)
       return (
         <RegistrationView
-          onLoggedIn={(user) => this.onLoggedIn(user)}
+          onLoggedIn={this.onLoggedIn}
           setRegistered={this.setRegistered}
         />
       );
@@ -60,7 +78,7 @@ export default class MainView extends React.Component {
     if (!user)
       return (
         <LoginView
-          onLoggedIn={(user) => this.onLoggedIn(user)}
+          onLoggedIn={this.onLoggedIn}
           setRegistered={this.setRegistered}
         />
       );

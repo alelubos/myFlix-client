@@ -17,7 +17,7 @@ class MovieView extends Component {
           xl={6}
         >
           <Row className="justify-content-start">
-            <Col sm={'auto'} className="">
+            <Col sm={'auto'}>
               <img
                 crossOrigin="anonymous"
                 className="poster"

@@ -91,14 +91,24 @@ body {
   color: var(--white);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 666px) {
   .row-width {
-    width: 65vw;
+    width: 72vw;
+  }
+}
+@media (min-width: 992px) {
+  .row-width {
+    width: 66vw;
   }
 }
 @media (min-width: 1200px) {
   .row-width {
-    width: 50vw;
+    width: 60vw;
+  }
+}
+@media (min-width: 1600px) {
+  .row-width {
+    width: 54vw;
   }
 }
 /*# sourceMappingURL=index.caa67093.css.map */
