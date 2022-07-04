@@ -32,11 +32,11 @@ export function RegistrationView(props) {
         return { ...prevValues, usernameErr: 'Username is required.' };
       });
       isReq = false;
-    } else if (username.length < 2) {
+    } else if (username.length < 5) {
       setValues((prevValues) => {
         return {
           ...prevValues,
-          usernameErr: 'Username must be at least 2 characters long.',
+          usernameErr: 'Username must be at least 5 characters long.',
         };
       });
     }
@@ -79,10 +79,11 @@ export function RegistrationView(props) {
     event.preventDefault();
     const isReq = validate();
     if (isReq) {
-      /* Send a request to the server for registration */
-
-      props.setRegistered(true);
-      props.onLoggedIn(values);
+      /* Send a POST request to /users endpoint to register & getting credentials
+            props.setRegistered(true);
+        Pass credentials -username and JWT token- to:
+            props.onLoggedIn(authData);
+      */
     }
   };
 

@@ -1,45 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Badge, Card, Col } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './movie-card.scss';
 
-class MovieCard extends Component {
-  // state = {  }
+export class MovieCard extends Component {
   render() {
-    const { movie, setSelectedMovie } = this.props;
+    const { movie } = this.props;
     return (
       <Col
-        xs={{ span: 10, offset: 2 }}
-        sm={{ span: 6, offset: 0 }}
+        xs={9}
+        sm={{ span: 9, offset: 2 }}
+        md={{ span: 5, offset: 0 }}
         lg={4}
         xl={3}
+        className="mb-3"
       >
-        <Card
-          className="my-2 movie-card"
-          style={{ maxWidth: '16rem', minHeight: '16rem' }}
-          onClick={() => setSelectedMovie(movie)}
-        >
-          <Card.Img
-            crossOrigin="anonymous"
-            src={movie.imageURL}
-            className="poster position-relative"
-          />
-          {/* <Card.ImgOverlay>
-            <Badge
-              className="top-right-position"
-              pill
-              bg="dark"
-              text="light"
-              style={{ fontSize: '.9rem', fontWeight: '500' }}
-            >
-              {movie.rating}⭐
-            </Badge>
-          </Card.ImgOverlay> */}
-          <Card.Body>
-            <span className="card-title">{movie.title} </span>
-            <span className="card-year">({movie.releaseYear})</span>
-          </Card.Body>
-        </Card>
+        <Link to={`/movies/${movie._id}`}>
+          <Card className="my-1 movie-card">
+            <Card.Img
+              crossOrigin="anonymous"
+              src={movie.imageURL}
+              className="poster position-relative"
+            />{' '}
+            <Card.Body>
+              <p className="card-title mb-2">{movie.title} </p>
+              <span className="card-year">({movie.releaseYear})</span>
+            </Card.Body>
+          </Card>
+        </Link>
       </Col>
     );
   }
@@ -50,7 +39,4 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     releaseYear: PropTypes.number.isRequired,
   }).isRequired,
-  setSelectedMovie: PropTypes.func.isRequired,
 };
-
-export default MovieCard;

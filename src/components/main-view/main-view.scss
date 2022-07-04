@@ -1,5 +1,5 @@
-.row-width {
-  width: 90vw;
+.main-view-width {
+  width: 100vw;
   margin: auto;
 }
 
@@ -9,26 +9,20 @@
   color: var(--white);
 }
 
-@media (min-width: 666px) {
-  .row-width {
-    width: 72vw;
+@media (min-width: 768px) {
+  .main-view-width {
+    width: 80vw;
   }
 }
 
-@media (min-width: 992px) {
-  .row-width {
-    width: 66vw;
-  }
-}
-
-@media (min-width: 1200px) {
-  .row-width {
-    width: 60vw;
+@media (min-width: 1400px) {
+  .main-view-width {
+    width: 70vw;
   }
 }
 
 @media (min-width: 1600px) {
-  .row-width {
-    width: 54vw;
+  .main-view-width {
+    width: 60vw;
   }
 }

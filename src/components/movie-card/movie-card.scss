@@ -1,18 +1,9 @@
-.position-relative {
-  position: relative;
-}
-
-.top-right-position {
-  position: absolute;
-  right: 5%;
-  top: 3%;
-}
-
 .movie-card {
-  // padding: 0.28em;
   cursor: pointer;
   transition: all 0.28s;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 16rem;
+  min-height: 16rem;
 }
 
 .movie-card:hover {
@@ -21,9 +12,13 @@
 }
 
 .card-title {
-  font-size: 1.3rem;
-  font-weight: 500;
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-year {

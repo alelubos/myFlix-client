@@ -1,20 +1,21 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-import MovieCard from '../movie-card/movie-card';
-import MovieView from '../movie-view/movie-view';
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
+import { DirectorView } from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 
 import './main-view.scss';
-
 export default class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       user: null,
       isRegistered: true,
     };
@@ -44,7 +45,6 @@ export default class MainView extends React.Component {
   }
 
   onLoggedIn = (authData) => {
-    console.log(authData);
     this.setState({ user: authData.user.username });
 
     localStorage.setItem('token', authData.token);
@@ -54,16 +54,14 @@ export default class MainView extends React.Component {
   };
 
   setRegistered = (value) => {
-    this.setState({ isRegistered: value });
-  };
-
-  setSelectedMovie = (movie) => {
-    this.setState({ selectedMovie: movie });
+    this.setState({
+      isRegistered: value,
+    });
   };
 
   render() {
-    const { movies, selectedMovie, user, isRegistered } = this.state;
-
+    const { movies, user, isRegistered } = this.state;
+    const { match } = this.props;
     // If user is not registered, render RegistrationView
     if (!isRegistered)
       return (
@@ -83,20 +81,6 @@ export default class MainView extends React.Component {
         />
       );
 
-    // Display MovieView OR message of empty list
-    if (selectedMovie)
-      return (
-        <MovieView
-          movie={selectedMovie}
-          // function to set or re-set (to null) selectedMovie
-          setSelectedMovie={this.setSelectedMovie}
-          // genre & director are NESTED OBJECTS (not allowed in React Child Components):
-          // their 'name' properties must be passed as a flat props variable
-          genreName={selectedMovie.genre.name}
-          directorName={selectedMovie.director.name}
-        />
-      );
-
     if (!movies)
       return (
         <div className="main-view">The list is empty. Loading info...</div>
@@ -104,19 +88,63 @@ export default class MainView extends React.Component {
 
     // Display List of Movies
     return (
-      <Container fluid>
-        <Row className="row-width mx-auto justify-content-center">
-          {movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              setSelectedMovie={this.setSelectedMovie}
-            >
-              {movie.title}
-            </MovieCard>
-          ))}
-        </Row>
-      </Container>
+      <Router>
+        <Container fluid>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <Row className="main-view-width mx-auto justify-content-center mt-3">
+                  {movies.map((movie) => (
+                    <MovieCard key={movie._id} movie={movie}>
+                      {movie.title}
+                    </MovieCard>
+                  ))}
+                </Row>
+              );
+            }}
+          />
+
+          <Route
+            path="/movies/:movieId"
+            render={({ match, history }) => (
+              <MovieView
+                movie={movies.find((m) => m._id === match.params.movieId)}
+                history={history}
+              />
+            )}
+          />
+
+          <Route
+            path="/directors/:directorName"
+            render={({ match, history }) => (
+              <DirectorView
+                director={
+                  movies.find(
+                    (m) => m.director.name === match.params.directorName
+                  ).director
+                }
+                goBack={history.goBack}
+              />
+            )}
+          />
+
+          <Route
+            path="/genres/:genreName"
+            render={({ match, history }) => (
+              <GenreView
+                genre={
+                  movies.find(
+                    (movie) => movie.genre.name === match.params.genreName
+                  ).genre
+                }
+                goBack={history.goBack}
+              />
+            )}
+          />
+        </Container>
+      </Router>
     );
   }
 }

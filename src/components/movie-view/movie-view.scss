@@ -6,6 +6,7 @@
     rgb(220, 220, 220) 85%,
     rgb(170, 170, 170) 100%
   );
+  min-height: 100vh;
 }
 
 .poster {
@@ -15,16 +16,12 @@
 
 .title {
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 2.6rem;
   line-height: 3rem;
 }
 
 .specs {
   font-size: 1.6rem;
   color: white;
-}
-
-.year {
-  font-weight: 300;
-  font-size: 2rem;
+  font-weight: 500;
 }

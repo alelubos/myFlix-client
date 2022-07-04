@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   font-family: "Barlow", sans-serif !important;
-  font-size: 1em;
+  font-size: 1.1em;
   background: rgb(220, 220, 220) !important;
 }
 
@@ -14,7 +14,6 @@ body {
   padding: 1em;
   background-color: white;
   width: 350px;
-  box-shadow: 4px 4px 7px hsla(0deg, 0%, 0%, 0.5);
   border-radius: 3px;
 }
 
@@ -36,20 +35,12 @@ body {
 .validation-message::before {
   content: "↪ ";
 }
-.position-relative {
-  position: relative;
-}
-
-.top-right-position {
-  position: absolute;
-  right: 5%;
-  top: 3%;
-}
-
 .movie-card {
   cursor: pointer;
   transition: all 0.28s;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  max-width: 16rem;
+  min-height: 16rem;
 }
 
 .movie-card:hover {
@@ -58,9 +49,13 @@ body {
 }
 
 .card-title {
-  font-size: 1.3rem;
-  font-weight: 500;
+  position: relative;
+  font-size: 1.25rem;
+  font-weight: 600;
   line-height: 1.4rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card-year {
@@ -70,6 +65,7 @@ body {
 }
 .view-background {
   background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(220, 220, 220) 15%, rgb(220, 220, 220) 85%, rgb(170, 170, 170) 100%);
+  min-height: 100vh;
 }
 
 .poster {
@@ -79,21 +75,17 @@ body {
 
 .title {
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 2.6rem;
   line-height: 3rem;
 }
 
 .specs {
   font-size: 1.6rem;
   color: white;
+  font-weight: 500;
 }
-
-.year {
-  font-weight: 300;
-  font-size: 2rem;
-}
-.row-width {
-  width: 90vw;
+.main-view-width {
+  width: 100vw;
   margin: auto;
 }
 
@@ -103,24 +95,19 @@ body {
   color: var(--white);
 }
 
-@media (min-width: 666px) {
-  .row-width {
-    width: 72vw;
+@media (min-width: 768px) {
+  .main-view-width {
+    width: 80vw;
   }
 }
-@media (min-width: 992px) {
-  .row-width {
-    width: 66vw;
-  }
-}
-@media (min-width: 1200px) {
-  .row-width {
-    width: 60vw;
+@media (min-width: 1400px) {
+  .main-view-width {
+    width: 70vw;
   }
 }
 @media (min-width: 1600px) {
-  .row-width {
-    width: 54vw;
+  .main-view-width {
+    width: 60vw;
   }
 }
 /*# sourceMappingURL=index.caa67093.css.map */

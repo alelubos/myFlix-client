@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './movie-view.scss';
 
-class MovieView extends Component {
+export class MovieView extends Component {
   render() {
-    const { movie, genreName, directorName, setSelectedMovie } = this.props;
+    const { movie } = this.props;
+    console.log(this.props);
     if (!movie) return <div></div>;
     return (
-      <Row className="m-1 justify-content-center view-background">
+      <Row className="justify-content-center view-background">
         <Col
           className="container p-3 justify-content-center"
           md={9}
@@ -27,30 +29,40 @@ class MovieView extends Component {
             </Col>
             <Col>
               <div className="mt-2">
-                <div className="title">
-                  {movie.title}{' '}
-                  <span className="year">({movie.releaseYear})</span>
-                </div>
+                <div className="title">{movie.title} </div>
 
                 <div className="specs mt-2 bg-info">
-                  <span className="value ml-2">{genreName} </span>
+                  <span className="mx-2">{movie.releaseYear}</span>
                   <span className="mx-2">|</span>
-                  <span className="value"> {movie.rating}</span> <span>⭐</span>
+                  <span className="value rating"> {movie.rating}</span>{' '}
+                  <span>⭐</span>
                 </div>
 
                 <div className="mt-3">
-                  <span className="fw-bold">Director</span>
-                  <span className="value">: {directorName}</span>
+                  <span className="fw-bold">Genre: </span>
+                  <Link to={`/genres/${movie.genre.name}`}>
+                    <span className="ml-3 value text-uppercase">
+                      {movie.genre.name}{' '}
+                    </span>
+                  </Link>
+                </div>
+
+                <div className="mt-2">
+                  <span className="fw-bold">Director: </span>
+                  <Link to={`/directors/${movie.director.name}`}>
+                    <span className="value">{movie.director.name}</span>
+                  </Link>
                 </div>
 
                 <div className="mt-2">
                   <span className="fw-bold">Overview</span>
                   <span className="value">: {movie.description}</span>
                 </div>
+
                 <Button
                   className="my-3 mb-0"
                   variant="outline-primary"
-                  onClick={() => setSelectedMovie(null)}
+                  onClick={this.props.history.goBack}
                 >
                   Back to Movies
                 </Button>
@@ -71,9 +83,7 @@ MovieView.propTypes = {
     rating: PropTypes.number,
     description: PropTypes.string.isRequired,
   }).isRequired,
-  genreName: PropTypes.string.isRequired,
-  directorName: PropTypes.string.isRequired,
-  setSelectedMovie: PropTypes.func.isRequired,
+  // genreName: PropTypes.string.isRequired,
+  // directorName: PropTypes.string.isRequired,
+  // setSelectedMovie: PropTypes.func.isRequired,
 };
-
-export default MovieView;
