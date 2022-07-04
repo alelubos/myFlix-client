@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Button } from 'react-bootstrap';
+import { MovieCard } from '../movie-card/movie-card';
 
 export class GenreView extends React.Component {
   constructor() {
@@ -8,20 +9,23 @@ export class GenreView extends React.Component {
   }
 
   render() {
-    const { genre, goBack } = this.props;
+    const { genre, genreMovies, goBack } = this.props;
     return (
       <Container className="mt-5">
         <h1>{genre.name}</h1>
-        <h3>DESCRIPTION: </h3>
+        <h2 className="subtitle">DESCRIPTION: </h2>
         <p>{genre.description}</p>
-
-        {/* <Row className="main-view-width mx-auto justify-content-center mt-3">
-          {directedMovies.map((movie) => (
+        <h2 className="subtitle">MOVIES ON THIS GENRE: </h2>
+        <Row className="main-view-width mx-auto justify-content-center mt-3">
+          {genreMovies.map((movie) => (
             <MovieCard key={movie._id} movie={movie}>
               {movie.title}
             </MovieCard>
           ))}
-        </Row> */}
+        </Row>
+        <Button variant="outline-primary" onClick={goBack}>
+          Go Back
+        </Button>
       </Container>
     );
   }

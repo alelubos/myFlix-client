@@ -64,7 +64,7 @@ export class MovieView extends Component {
                   variant="outline-primary"
                   onClick={this.props.history.goBack}
                 >
-                  Back to Movies
+                  Go Back
                 </Button>
               </div>
             </Col>

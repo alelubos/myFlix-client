@@ -125,6 +125,9 @@ export default class MainView extends React.Component {
                     (m) => m.director.name === match.params.directorName
                   ).director
                 }
+                directorMovies={movies.filter(
+                  (m) => m.director.name === match.params.directorName
+                )}
                 goBack={history.goBack}
               />
             )}
@@ -134,6 +137,9 @@ export default class MainView extends React.Component {
             path="/genres/:genreName"
             render={({ match, history }) => (
               <GenreView
+                genreMovies={movies.filter(
+                  (movie) => movie.genre.name === match.params.genreName
+                )}
                 genre={
                   movies.find(
                     (movie) => movie.genre.name === match.params.genreName
