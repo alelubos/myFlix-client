@@ -44,8 +44,8 @@ body {
   cursor: pointer;
   transition: all 0.28s;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  max-width: 16rem;
-  min-height: 16rem;
+  width: 15rem;
+  min-height: 12rem;
 }
 
 .movie-card:hover {
@@ -76,18 +76,20 @@ body {
 .poster {
   object-fit: cover;
   object-position: 50% 50%;
+  width: 100%;
 }
 
 .title {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 2.6rem;
   line-height: 3rem;
 }
 
 .specs {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: 500;
+  padding-right: 10px;
 }
 .main-view-width {
   width: 100vw;
@@ -114,5 +116,27 @@ body {
   .main-view-width {
     width: 60vw;
   }
+}
+.logo {
+  min-width: 180px;
+  min-height: 34px;
+  max-width: 250px;
+  fill: rgb(255, 242, 0);
+}
+
+.stripes {
+  background-image: repeating-linear-gradient(135deg, #333, #333 70px, #555 70px, #555 140px);
+}
+
+.nav-link {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 300;
+  padding-right: 10px;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: underline !important;
 }
 /*# sourceMappingURL=index.caa67093.css.map */

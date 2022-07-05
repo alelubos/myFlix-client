@@ -3,12 +3,14 @@ import axios from 'axios';
 import { Container, Row } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view';
-import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+import { LoginView } from '../login-view/login-view';
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
+import { NavBar } from '../nav-bar/nav-bar';
+import { ProfileView } from '../profile-view/profile-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 import './main-view.scss';
 export default class MainView extends React.Component {
@@ -66,6 +68,7 @@ export default class MainView extends React.Component {
     // Display List of Movies
     return (
       <Router>
+        <NavBar />
         <Container fluid>
           <Route
             exact
@@ -93,6 +96,7 @@ export default class MainView extends React.Component {
               return <RegistrationView />;
             }}
           />
+
           <Route
             path="/movies/:movieId"
             render={({ match, history }) => (
@@ -139,9 +143,12 @@ export default class MainView extends React.Component {
 
           <Route
             path="/users/:username"
-            render={({ history }) => (
-              <ProfileView user={this.state.user} goBack={history.goBack} />
-            )}
+            render={({ history }) => {
+              if (!user) return <Redirect to="/" />;
+              return (
+                <ProfileView user={this.state.user} goBack={history.goBack} />
+              );
+            }}
           />
         </Container>
       </Router>

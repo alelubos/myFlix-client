@@ -12,16 +12,18 @@
 .poster {
   object-fit: cover;
   object-position: 50% 50%;
+  width: 100%;
 }
 
 .title {
-  font-weight: 900;
+  font-weight: 700;
   font-size: 2.6rem;
   line-height: 3rem;
 }
 
 .specs {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: 500;
+  padding-right: 10px;
 }

@@ -1,0 +1,28 @@
+.logo {
+  min-width: 180px;
+  min-height: 34px;
+  max-width: 250px;
+  fill: rgb(255, 242, 0);
+}
+
+.stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    #333,
+    #333 70px,
+    #555 70px,
+    #555 140px
+  );
+}
+
+.nav-link {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 300;
+  padding-right: 10px;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: underline !important;
+}

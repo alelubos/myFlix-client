@@ -18,7 +18,7 @@ export class MovieView extends Component {
           xl={6}
         >
           <Row className="justify-content-start">
-            <Col sm={'auto'}>
+            <Col sm={6}>
               <img
                 crossOrigin="anonymous"
                 className="poster"
@@ -26,7 +26,7 @@ export class MovieView extends Component {
                 alt="Poster from the movie"
               />
             </Col>
-            <Col>
+            <Col sm={6}>
               <div className="mt-2">
                 <div className="title">{movie.title} </div>
 
