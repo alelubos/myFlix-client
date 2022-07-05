@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Row } from 'react-bootstrap';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -89,6 +89,7 @@ export default class MainView extends React.Component {
           <Route
             path="/register"
             render={() => {
+              if (user) return <Redirect to="/" />;
               return <RegistrationView />;
             }}
           />
@@ -138,18 +139,8 @@ export default class MainView extends React.Component {
 
           <Route
             path="/users/:username"
-            render={({ match, history }) => (
-              <ProfileView
-                username={movies.filter(
-                  (movie) => movie.genre.name === match.params.genreName
-                )}
-                genre={
-                  movies.find(
-                    (movie) => movie.genre.name === match.params.genreName
-                  ).genre
-                }
-                goBack={history.goBack}
-              />
+            render={({ history }) => (
+              <ProfileView user={this.state.user} goBack={history.goBack} />
             )}
           />
         </Container>

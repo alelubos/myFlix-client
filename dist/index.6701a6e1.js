@@ -3984,6 +3984,9 @@ class MainView extends _reactDefault.default.Component {
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/register",
                         render: ()=>{
+                            if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Redirect, {
+                                to: "/"
+                            }));
                             return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
                             }));
                         },
@@ -4003,7 +4006,7 @@ class MainView extends _reactDefault.default.Component {
                         ,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 95
+                            lineNumber: 96
                         },
                         __self: this
                     }),
@@ -4019,7 +4022,7 @@ class MainView extends _reactDefault.default.Component {
                         ,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 105
+                            lineNumber: 106
                         },
                         __self: this
                     }),
@@ -4035,23 +4038,20 @@ class MainView extends _reactDefault.default.Component {
                         ,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 122
+                            lineNumber: 123
                         },
                         __self: this
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                         path: "/users/:username",
-                        render: ({ match , history  })=>/*#__PURE__*/ _jsxRuntime.jsx(ProfileView, {
-                                username: movies.filter((movie)=>movie.genre.name === match.params.genreName
-                                ),
-                                genre: movies.find((movie)=>movie.genre.name === match.params.genreName
-                                ).genre,
+                        render: ({ history  })=>/*#__PURE__*/ _jsxRuntime.jsx(ProfileView, {
+                                user: this.state.user,
                                 goBack: history.goBack
                             })
                         ,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 139
+                            lineNumber: 140
                         },
                         __self: this
                     })
