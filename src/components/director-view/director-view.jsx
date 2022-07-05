@@ -5,7 +5,6 @@ import { MovieCard } from '../movie-card/movie-card';
 export class DirectorView extends React.Component {
   render() {
     const { director, directorMovies, goBack } = this.props;
-    console.log(directorMovies);
     return (
       <Container className="mt-5">
         <h1>{director.name}</h1>

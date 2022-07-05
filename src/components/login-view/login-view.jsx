@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export function LoginView(props) {
@@ -98,13 +99,11 @@ export function LoginView(props) {
             </Card.Body>
 
             <Card.Footer>
-              <Button
-                className="ma-0 col-10 offset-1"
-                variant="link"
-                onClick={() => props.setRegistered(false)}
-              >
-                Not Registered? Sign Up
-              </Button>
+              <Link to="/register">
+                <Button className="ma-0 col-10 offset-1" variant="link">
+                  Not Registered? Sign Up
+                </Button>
+              </Link>
             </Card.Footer>
           </Card>
         </Col>
@@ -115,5 +114,4 @@ export function LoginView(props) {
 
 LoginView.propTypes = {
   onLoggedIn: PropTypes.func.isRequired,
-  setRegistered: PropTypes.func.isRequired,
 };

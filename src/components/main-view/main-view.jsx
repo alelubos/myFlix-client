@@ -17,7 +17,6 @@ export default class MainView extends React.Component {
     this.state = {
       movies: [],
       user: null,
-      isRegistered: true,
     };
   }
 
@@ -53,33 +52,11 @@ export default class MainView extends React.Component {
     this.getMovies(authData.token);
   };
 
-  setRegistered = (value) => {
-    this.setState({
-      isRegistered: value,
-    });
-  };
-
   render() {
-    const { movies, user, isRegistered } = this.state;
-    const { match } = this.props;
-    // If user is not registered, render RegistrationView
-    if (!isRegistered)
-      return (
-        <RegistrationView
-          onLoggedIn={this.onLoggedIn}
-          setRegistered={this.setRegistered}
-        />
-      );
+    const { movies, user } = this.state;
 
     // If there's no user, the LoginView is rendered.
     // If there's a user logged in, the user details are passed as a prop to LoginView
-    if (!user)
-      return (
-        <LoginView
-          onLoggedIn={this.onLoggedIn}
-          setRegistered={this.setRegistered}
-        />
-      );
 
     if (!movies)
       return (
@@ -94,6 +71,9 @@ export default class MainView extends React.Component {
             exact
             path="/"
             render={() => {
+              if (!user) {
+                return <LoginView onLoggedIn={this.onLoggedIn} />;
+              }
               return (
                 <Row className="main-view-width mx-auto justify-content-center mt-3">
                   {movies.map((movie) => (
@@ -106,6 +86,12 @@ export default class MainView extends React.Component {
             }}
           />
 
+          <Route
+            path="/register"
+            render={() => {
+              return <RegistrationView />;
+            }}
+          />
           <Route
             path="/movies/:movieId"
             render={({ match, history }) => (
@@ -138,6 +124,23 @@ export default class MainView extends React.Component {
             render={({ match, history }) => (
               <GenreView
                 genreMovies={movies.filter(
+                  (movie) => movie.genre.name === match.params.genreName
+                )}
+                genre={
+                  movies.find(
+                    (movie) => movie.genre.name === match.params.genreName
+                  ).genre
+                }
+                goBack={history.goBack}
+              />
+            )}
+          />
+
+          <Route
+            path="/users/:username"
+            render={({ match, history }) => (
+              <ProfileView
+                username={movies.filter(
                   (movie) => movie.genre.name === match.params.genreName
                 )}
                 genre={

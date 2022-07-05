@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { PropTypes } from 'prop-types';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -79,11 +81,22 @@ export function RegistrationView(props) {
     event.preventDefault();
     const isReq = validate();
     if (isReq) {
-      /* Send a POST request to /users endpoint to register & getting credentials
-            props.setRegistered(true);
-        Pass credentials -username and JWT token- to:
-            props.onLoggedIn(authData);
-      */
+      // Send a POST request to /users endpoint to register & getting credentials
+      axios
+        .post('https://top-flix.herokuapp.com/users', {
+          username: username,
+          password: password,
+          email: email,
+          birthday: birthday,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          window.open('/', '_self');
+        })
+        .catch((e) => {
+          console.log('error registering the user.');
+        });
     }
   };
 
@@ -159,13 +172,11 @@ export function RegistrationView(props) {
               </Form>
             </Card.Body>
             <Card.Footer className="pr-0 my-0">
-              <Button
-                className="col-10 offset-1"
-                variant="link"
-                onClick={() => props.setRegistered(true)}
-              >
-                Already registered? Log In
-              </Button>
+              <Link to="/">
+                <Button className="col-10 offset-1" variant="link">
+                  Already registered? Log In
+                </Button>
+              </Link>
             </Card.Footer>
           </Card>
         </Col>
@@ -173,8 +184,3 @@ export function RegistrationView(props) {
     </Container>
   );
 }
-
-RegistrationView.propTypes = {
-  onLoggedIn: PropTypes.func.isRequired,
-  setRegistered: PropTypes.func.isRequired,
-};

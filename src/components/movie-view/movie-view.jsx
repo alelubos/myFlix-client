@@ -8,7 +8,6 @@ import './movie-view.scss';
 export class MovieView extends Component {
   render() {
     const { movie } = this.props;
-    console.log(this.props);
     if (!movie) return <div></div>;
     return (
       <Row className="justify-content-center view-background">
