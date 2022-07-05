@@ -10,7 +10,7 @@ export class MovieView extends Component {
     const { movie, goBack } = this.props;
     if (!movie) return <div></div>;
     return (
-      <Row className="justify-content-center view-background">
+      <Row className="justify-content-center">
         <Col
           className="container p-3 justify-content-center"
           md={9}
@@ -40,16 +40,21 @@ export class MovieView extends Component {
                 <div className="mt-3">
                   <span className="fw-bold">Genre: </span>
                   <Link to={`/genres/${movie.genre.name}`}>
-                    <span className="ml-3 value text-uppercase">
+                    <Button
+                      variant="outline-dark"
+                      className="ml-4 value text-uppercase"
+                    >
                       {movie.genre.name}{' '}
-                    </span>
+                    </Button>
                   </Link>
                 </div>
 
                 <div className="mt-2">
                   <span className="fw-bold">Director: </span>
                   <Link to={`/directors/${movie.director.name}`}>
-                    <span className="value">{movie.director.name}</span>
+                    <Button variant="outline-dark" className="value ml-2">
+                      {movie.director.name}
+                    </Button>
                   </Link>
                 </div>
 
@@ -58,12 +63,8 @@ export class MovieView extends Component {
                   <span className="value">: {movie.description}</span>
                 </div>
 
-                <Button
-                  className="my-3 mb-0"
-                  variant="outline-primary"
-                  onClick={goBack}
-                >
-                  Go Back
+                <Button className="my-4" variant="warning" onClick={goBack}>
+                  « Back
                 </Button>
               </div>
             </Col>

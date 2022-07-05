@@ -2,7 +2,8 @@
 body {
   font-family: "Barlow", sans-serif !important;
   font-size: 1.1em;
-  background: rgb(220, 220, 220) !important;
+  background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(220, 220, 220) 15%, rgb(220, 220, 220) 85%, rgb(170, 170, 170) 100%);
+  min-height: 100vh;
 }
 
 .my-flix {
@@ -40,6 +41,11 @@ body {
 .validation-message::before {
   content: "↪ ";
 }
+
+.view-background {
+  background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(220, 220, 220) 15%, rgb(220, 220, 220) 85%, rgb(170, 170, 170) 100%);
+  min-height: 100vh;
+}
 .movie-card {
   cursor: pointer;
   transition: all 0.28s;
@@ -68,11 +74,6 @@ body {
   font-weight: 300;
   line-height: 1.4rem;
 }
-.view-background {
-  background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(220, 220, 220) 15%, rgb(220, 220, 220) 85%, rgb(170, 170, 170) 100%);
-  min-height: 100vh;
-}
-
 .poster {
   object-fit: cover;
   object-position: 50% 50%;
@@ -118,14 +119,15 @@ body {
   }
 }
 .logo {
-  min-width: 180px;
+  min-width: 220px;
   min-height: 34px;
-  max-width: 250px;
-  fill: rgb(255, 242, 0);
+  max-width: 270px;
+  fill: var(--warning);
+  margin-left: -40px;
 }
 
 .stripes {
-  background-image: repeating-linear-gradient(135deg, #333, #333 70px, #555 70px, #555 140px);
+  background-image: repeating-linear-gradient(135deg, #222, #222 70px, #555 70px, #555 140px);
 }
 
 .nav-link {

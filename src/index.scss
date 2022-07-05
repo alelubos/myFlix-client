@@ -1,7 +1,14 @@
 body {
   font-family: 'Barlow', sans-serif !important;
   font-size: 1.1em;
-  background: rgb(220, 220, 220) !important;
+  background: linear-gradient(
+    90deg,
+    rgb(170, 170, 170) 0%,
+    rgb(220, 220, 220) 15%,
+    rgb(220, 220, 220) 85%,
+    rgb(170, 170, 170) 100%
+  );
+  min-height: 100vh;
 }
 
 .my-flix {
@@ -38,4 +45,15 @@ body {
 
 .validation-message::before {
   content: '↪ ';
+}
+
+.view-background {
+  background: linear-gradient(
+    90deg,
+    rgb(170, 170, 170) 0%,
+    rgb(220, 220, 220) 15%,
+    rgb(220, 220, 220) 85%,
+    rgb(170, 170, 170) 100%
+  );
+  min-height: 100vh;
 }

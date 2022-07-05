@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom';
 import './nav-bar.scss';
 
 export const NavBar = () => {
+  const getToken = () => {
+    let userToken = localStorage.getItem('token');
+    return userToken ? userToken : false;
+  };
+
+  const logOut = () => {
+    localStorage.clear();
+    window.open('/', '_self');
+  };
+
   return (
     <Navbar
       collapseOnSelect
@@ -39,17 +49,27 @@ export const NavBar = () => {
           className="justify-content-end"
         >
           <Nav className="justify-content-end">
-            <Link className="nav-link" to="/users/username">
-              Profile
+            <Link className="nav-link mr-2" to="/">
+              Home
             </Link>
-
-            <Link className="nav-link" to="/register">
-              Signup
-            </Link>
-
-            <Link className="nav-link" to="/">
-              Signout
-            </Link>
+            {getToken() ? (
+              <>
+                {' '}
+                <Link className="nav-link mr-2" to="/users/username">
+                  Profile
+                </Link>
+                <p className="nav-link" onClick={logOut}>
+                  Log Out
+                </p>
+              </>
+            ) : (
+              <>
+                {' '}
+                <Link className="nav-link" to="/register">
+                  Sign Up
+                </Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

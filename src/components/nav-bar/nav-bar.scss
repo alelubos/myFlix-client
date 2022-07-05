@@ -1,15 +1,16 @@
 .logo {
-  min-width: 180px;
+  min-width: 220px;
   min-height: 34px;
-  max-width: 250px;
-  fill: rgb(255, 242, 0);
+  max-width: 270px;
+  fill: var(--warning);
+  margin-left: -40px;
 }
 
 .stripes {
   background-image: repeating-linear-gradient(
     135deg,
-    #333,
-    #333 70px,
+    #222,
+    #222 70px,
     #555 70px,
     #555 140px
   );

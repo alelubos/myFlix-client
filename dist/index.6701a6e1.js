@@ -40853,7 +40853,7 @@ class MovieView extends _react.Component {
             __self: this
         }));
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-            className: "justify-content-center view-background",
+            className: "justify-content-center",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 13
@@ -40996,8 +40996,9 @@ class MovieView extends _react.Component {
                                                     lineNumber: 42
                                                 },
                                                 __self: this,
-                                                children: /*#__PURE__*/ _jsxRuntime.jsxs("span", {
-                                                    className: "ml-3 value text-uppercase",
+                                                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Button, {
+                                                    variant: "outline-dark",
+                                                    className: "ml-4 value text-uppercase",
                                                     __source: {
                                                         fileName: "src/components/movie-view/movie-view.jsx",
                                                         lineNumber: 43
@@ -41015,7 +41016,7 @@ class MovieView extends _react.Component {
                                         className: "mt-2",
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 49
+                                            lineNumber: 52
                                         },
                                         __self: this,
                                         children: [
@@ -41023,7 +41024,7 @@ class MovieView extends _react.Component {
                                                 className: "fw-bold",
                                                 __source: {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 50
+                                                    lineNumber: 53
                                                 },
                                                 __self: this,
                                                 children: "Director: "
@@ -41032,14 +41033,15 @@ class MovieView extends _react.Component {
                                                 to: `/directors/${movie.director.name}`,
                                                 __source: {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 51
+                                                    lineNumber: 54
                                                 },
                                                 __self: this,
-                                                children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                                    className: "value",
+                                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                    variant: "outline-dark",
+                                                    className: "value ml-2",
                                                     __source: {
                                                         fileName: "src/components/movie-view/movie-view.jsx",
-                                                        lineNumber: 52
+                                                        lineNumber: 55
                                                     },
                                                     __self: this,
                                                     children: movie.director.name
@@ -41051,7 +41053,7 @@ class MovieView extends _react.Component {
                                         className: "mt-2",
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 56
+                                            lineNumber: 61
                                         },
                                         __self: this,
                                         children: [
@@ -41059,7 +41061,7 @@ class MovieView extends _react.Component {
                                                 className: "fw-bold",
                                                 __source: {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 57
+                                                    lineNumber: 62
                                                 },
                                                 __self: this,
                                                 children: "Overview"
@@ -41068,7 +41070,7 @@ class MovieView extends _react.Component {
                                                 className: "value",
                                                 __source: {
                                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                                    lineNumber: 58
+                                                    lineNumber: 63
                                                 },
                                                 __self: this,
                                                 children: [
@@ -41079,15 +41081,15 @@ class MovieView extends _react.Component {
                                         ]
                                     }),
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                        className: "my-3 mb-0",
-                                        variant: "outline-primary",
+                                        className: "my-4",
+                                        variant: "warning",
                                         onClick: goBack,
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 61
+                                            lineNumber: 66
                                         },
                                         __self: this,
-                                        children: "Go Back"
+                                        children: "\xab Back"
                                     })
                                 ]
                             })
@@ -44967,13 +44969,16 @@ class DirectorView extends _reactDefault.default.Component {
             },
             __self: this,
             children: [
-                /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                /*#__PURE__*/ _jsxRuntime.jsxs("h1", {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 10
                     },
                     __self: this,
-                    children: director.name
+                    children: [
+                        director.name,
+                        " "
+                    ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     __source: {
@@ -44987,11 +44992,22 @@ class DirectorView extends _reactDefault.default.Component {
                         "―"
                     ]
                 }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    className: "mb-4",
+                    variant: "warning",
+                    onClick: goBack,
+                    __source: {
+                        fileName: "src/components/director-view/director-view.jsx",
+                        lineNumber: 12
+                    },
+                    __self: this,
+                    children: "\xab Back"
+                }),
                 /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                     className: "subtitle",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 12
+                        lineNumber: 15
                     },
                     __self: this,
                     children: "BIO: "
@@ -44999,7 +45015,7 @@ class DirectorView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("p", {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 13
+                        lineNumber: 16
                     },
                     __self: this,
                     children: director.bio
@@ -45008,39 +45024,28 @@ class DirectorView extends _reactDefault.default.Component {
                     className: "subtitle",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 14
+                        lineNumber: 17
                     },
                     __self: this,
                     children: "DIRECTED MOVIES: "
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    className: "main-view-width mx-auto justify-content-center mt-3",
+                    className: "justify-content-center mt-3",
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 15
+                        lineNumber: 18
                     },
                     __self: this,
                     children: directorMovies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                             movie: movie,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 17
+                                lineNumber: 20
                             },
                             __self: this,
                             children: movie.title
                         }, movie._id)
                     )
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                    className: "mb-5",
-                    variant: "outline-primary",
-                    onClick: goBack,
-                    __source: {
-                        fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 22
-                    },
-                    __self: this,
-                    children: "Go Back"
                 })
             ]
         }));
@@ -45077,6 +45082,9 @@ class GenreView extends _reactDefault.default.Component {
         const { genre , genreMovies , goBack  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             className: "mt-5",
+            style: {
+                width: '80%'
+            },
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
                 lineNumber: 14
@@ -45084,6 +45092,7 @@ class GenreView extends _reactDefault.default.Component {
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                    className: "mb-1",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
                         lineNumber: 15
@@ -45091,11 +45100,22 @@ class GenreView extends _reactDefault.default.Component {
                     __self: this,
                     children: genre.name
                 }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    className: "mb-4",
+                    variant: "warning",
+                    onClick: goBack,
+                    __source: {
+                        fileName: "src/components/genre-view/genre-view.jsx",
+                        lineNumber: 16
+                    },
+                    __self: this,
+                    children: "\xab Back"
+                }),
                 /*#__PURE__*/ _jsxRuntime.jsx("h2", {
                     className: "subtitle",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 16
+                        lineNumber: 20
                     },
                     __self: this,
                     children: "DESCRIPTION: "
@@ -45103,7 +45123,7 @@ class GenreView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx("p", {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 17
+                        lineNumber: 21
                     },
                     __self: this,
                     children: genre.description
@@ -45112,38 +45132,28 @@ class GenreView extends _reactDefault.default.Component {
                     className: "subtitle",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 18
+                        lineNumber: 22
                     },
                     __self: this,
                     children: "MOVIES ON THIS GENRE: "
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    className: "main-view-width mx-auto justify-content-center mt-3",
+                    className: "justify-content-center mt-3",
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 19
+                        lineNumber: 23
                     },
                     __self: this,
                     children: genreMovies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                             movie: movie,
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 21
+                                lineNumber: 25
                             },
                             __self: this,
                             children: movie.title
                         }, movie._id)
                     )
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                    variant: "outline-primary",
-                    onClick: goBack,
-                    __source: {
-                        fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 26
-                    },
-                    __self: this,
-                    children: "Go Back"
                 })
             ]
         }));
@@ -45173,6 +45183,14 @@ var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _navBarScss = require("./nav-bar.scss");
 const NavBar = ()=>{
+    const getToken = ()=>{
+        let userToken = localStorage.getItem('token');
+        return userToken ? userToken : false;
+    };
+    const logOut = ()=>{
+        localStorage.clear();
+        window.open('/', '_self');
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
         collapseOnSelect: true,
         expand: "md",
@@ -45181,20 +45199,20 @@ const NavBar = ()=>{
         sticky: "top",
         __source: {
             fileName: "src/components/nav-bar/nav-bar.jsx",
-            lineNumber: 8
+            lineNumber: 18
         },
         __self: undefined,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/nav-bar/nav-bar.jsx",
-                lineNumber: 15
+                lineNumber: 25
             },
             __self: undefined,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
                     __source: {
                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                        lineNumber: 16
+                        lineNumber: 26
                     },
                     __self: undefined,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
@@ -45202,7 +45220,7 @@ const NavBar = ()=>{
                         to: "/",
                         __source: {
                             fileName: "src/components/nav-bar/nav-bar.jsx",
-                            lineNumber: 17
+                            lineNumber: 27
                         },
                         __self: undefined,
                         children: /*#__PURE__*/ _jsxRuntime.jsx("svg", {
@@ -45211,7 +45229,7 @@ const NavBar = ()=>{
                             xmlns: "http://www.w3.org/2000/svg",
                             __source: {
                                 fileName: "src/components/nav-bar/nav-bar.jsx",
-                                lineNumber: 18
+                                lineNumber: 28
                             },
                             __self: undefined,
                             children: /*#__PURE__*/ _jsxRuntime.jsx("svg", {
@@ -45220,7 +45238,7 @@ const NavBar = ()=>{
                                 xmlns: "http://www.w3.org/2000/svg",
                                 __source: {
                                     fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 23
+                                    lineNumber: 33
                                 },
                                 __self: undefined,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx("path", {
@@ -45228,7 +45246,7 @@ const NavBar = ()=>{
                                     transform: "translate(16.458 66.39)",
                                     __source: {
                                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                                        lineNumber: 28
+                                        lineNumber: 38
                                     },
                                     __self: undefined
                                 })
@@ -45240,7 +45258,7 @@ const NavBar = ()=>{
                     "aria-controls": "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                        lineNumber: 36
+                        lineNumber: 46
                     },
                     __self: undefined
                 }),
@@ -45249,46 +45267,65 @@ const NavBar = ()=>{
                     className: "justify-content-end",
                     __source: {
                         fileName: "src/components/nav-bar/nav-bar.jsx",
-                        lineNumber: 37
+                        lineNumber: 47
                     },
                     __self: undefined,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                         className: "justify-content-end",
                         __source: {
                             fileName: "src/components/nav-bar/nav-bar.jsx",
-                            lineNumber: 41
+                            lineNumber: 51
                         },
                         __self: undefined,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                className: "nav-link",
-                                to: "/users/username",
-                                __source: {
-                                    fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 42
-                                },
-                                __self: undefined,
-                                children: "Profile"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                className: "nav-link",
-                                to: "/register",
-                                __source: {
-                                    fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 46
-                                },
-                                __self: undefined,
-                                children: "Signup"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                className: "nav-link",
+                                className: "nav-link mr-2",
                                 to: "/",
                                 __source: {
                                     fileName: "src/components/nav-bar/nav-bar.jsx",
-                                    lineNumber: 50
+                                    lineNumber: 52
                                 },
                                 __self: undefined,
-                                children: "Signout"
+                                children: "Home"
+                            }),
+                            getToken() ? /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+                                children: [
+                                    ' ',
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                        className: "nav-link mr-2",
+                                        to: "/users/username",
+                                        __source: {
+                                            fileName: "src/components/nav-bar/nav-bar.jsx",
+                                            lineNumber: 58
+                                        },
+                                        __self: undefined,
+                                        children: "Profile"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                                        className: "nav-link",
+                                        onClick: logOut,
+                                        __source: {
+                                            fileName: "src/components/nav-bar/nav-bar.jsx",
+                                            lineNumber: 61
+                                        },
+                                        __self: undefined,
+                                        children: "Log Out"
+                                    })
+                                ]
+                            }) : /*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
+                                children: [
+                                    ' ',
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                        className: "nav-link",
+                                        to: "/register",
+                                        __source: {
+                                            fileName: "src/components/nav-bar/nav-bar.jsx",
+                                            lineNumber: 68
+                                        },
+                                        __self: undefined,
+                                        children: "Sign Up"
+                                    })
+                                ]
                             })
                         ]
                     })
