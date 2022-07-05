@@ -97,7 +97,7 @@ export default class MainView extends React.Component {
             render={({ match, history }) => (
               <MovieView
                 movie={movies.find((m) => m._id === match.params.movieId)}
-                history={history}
+                goBack={history.goBack}
               />
             )}
           />

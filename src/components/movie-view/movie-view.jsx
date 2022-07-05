@@ -7,7 +7,7 @@ import './movie-view.scss';
 
 export class MovieView extends Component {
   render() {
-    const { movie } = this.props;
+    const { movie, goBack } = this.props;
     if (!movie) return <div></div>;
     return (
       <Row className="justify-content-center view-background">
@@ -61,7 +61,7 @@ export class MovieView extends Component {
                 <Button
                   className="my-3 mb-0"
                   variant="outline-primary"
-                  onClick={this.props.history.goBack}
+                  onClick={goBack}
                 >
                   Go Back
                 </Button>
