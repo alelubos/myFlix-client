@@ -3,7 +3,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './nav-bar.scss';
 
-export const NavBar = () => {
+export const NavBar = ({ user }) => {
   const getToken = () => {
     let userToken = localStorage.getItem('token');
     return userToken ? userToken : false;
@@ -50,12 +50,12 @@ export const NavBar = () => {
         >
           <Nav className="justify-content-end">
             <Link className="nav-link mr-2" to="/">
-              Home
+              Movies
             </Link>
             {getToken() ? (
               <>
                 {' '}
-                <Link className="nav-link mr-2" to="/users/username">
+                <Link className="nav-link mr-2" to={`/users/${user}`}>
                   Profile
                 </Link>
                 <p className="nav-link" onClick={logOut}>

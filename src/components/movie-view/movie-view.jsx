@@ -7,7 +7,7 @@ import './movie-view.scss';
 
 export class MovieView extends Component {
   render() {
-    const { movie, goBack } = this.props;
+    const { movie, goBack, isFavorite, handleFavorite } = this.props;
     if (!movie) return <div></div>;
     return (
       <Row className="justify-content-center">
@@ -31,10 +31,14 @@ export class MovieView extends Component {
                 <div className="title">{movie.title} </div>
 
                 <div className="specs mt-2 bg-info">
-                  <span className="mx-2">{movie.releaseYear}</span>
-                  <span className="mx-2">|</span>
-                  <span className="value rating"> {movie.rating}</span>{' '}
-                  <span>⭐</span>
+                  <span className="ml-2">{movie.releaseYear}</span>
+                  <span className="ml-3">| ⭐ {movie.rating}</span>
+                  {isFavorite && (
+                    <>
+                      <span className="ml-3">|</span>
+                      <span className="ml-3">♥️</span>
+                    </>
+                  )}
                 </div>
 
                 <div className="mt-3">
@@ -66,6 +70,17 @@ export class MovieView extends Component {
                 <Button className="my-4" variant="warning" onClick={goBack}>
                   « Back
                 </Button>
+                {!isFavorite ? (
+                  <Button
+                    className="my-4 ml-1"
+                    variant="outline-primary"
+                    onClick={() => handleFavorite(movie._id, 'add')}
+                  >
+                    Add to 🤍 Movies
+                  </Button>
+                ) : (
+                  <div />
+                )}
               </div>
             </Col>
           </Row>

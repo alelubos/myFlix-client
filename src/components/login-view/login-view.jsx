@@ -7,6 +7,7 @@ import axios from 'axios';
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   // Declare hook for each input error message (in case of invalid)
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
