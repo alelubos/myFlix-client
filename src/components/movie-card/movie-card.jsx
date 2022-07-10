@@ -16,8 +16,8 @@ export class MovieCard extends Component {
         xl={3}
         className="mb-3"
       >
-        <Link to={`/movies/${movie._id}`}>
-          <Card className="my-1 movie-card">
+        <Card className="my-1 movie-card">
+          <Link to={`/movies/${movie._id}`}>
             <Card.Img
               crossOrigin="anonymous"
               src={movie.imageURL}
@@ -27,8 +27,8 @@ export class MovieCard extends Component {
               <p className="card-title mb-2">{movie.title} </p>
               <span className="card-year">({movie.releaseYear})</span>
             </Card.Body>
-          </Card>
-        </Link>
+          </Link>
+        </Card>
       </Col>
     );
   }

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   font-family: "Barlow", sans-serif !important;
-  font-size: 1.1em;
+  font-size: 1.2rem !important;
   background: linear-gradient(90deg, rgb(170, 170, 170) 0%, rgb(220, 220, 220) 15%, rgb(220, 220, 220) 85%, rgb(170, 170, 170) 100%);
   min-height: 100vh;
 }
@@ -62,7 +62,7 @@ body {
 .card-title {
   position: relative;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -105,7 +105,7 @@ body {
 
 @media (min-width: 768px) {
   .main-view-width {
-    width: 80vw;
+    width: 82vw;
   }
 }
 @media (min-width: 1400px) {
@@ -115,7 +115,12 @@ body {
 }
 @media (min-width: 1600px) {
   .main-view-width {
-    width: 60vw;
+    width: 62vw;
+  }
+}
+@media (min-width: 1900px) {
+  .main-view-width {
+    width: 55vw;
   }
 }
 .logo {
@@ -142,7 +147,13 @@ body {
   text-decoration: underline !important;
 }
 
-h2 {
+h3 {
+  font-size: 1.25rem !important;
+}
+
+#mini {
   font-size: 1rem;
+  font-weight: 500;
+  color: gray;
 }
 /*# sourceMappingURL=index.caa67093.css.map */

@@ -11,7 +11,7 @@
 
 @media (min-width: 768px) {
   .main-view-width {
-    width: 80vw;
+    width: 82vw;
   }
 }
 
@@ -23,6 +23,12 @@
 
 @media (min-width: 1600px) {
   .main-view-width {
-    width: 60vw;
+    width: 62vw;
+  }
+}
+
+@media (min-width: 1900px) {
+  .main-view-width {
+    width: 55vw;
   }
 }

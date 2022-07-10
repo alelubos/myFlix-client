@@ -4171,15 +4171,15 @@ class MovieCard extends _react.Component {
                 lineNumber: 11
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                to: `/movies/${movie._id}`,
+            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
+                className: "my-1 movie-card",
                 __source: {
                     fileName: "src/components/movie-card/movie-card.jsx",
                     lineNumber: 19
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
-                    className: "my-1 movie-card",
+                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
+                    to: `/movies/${movie._id}`,
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 20
@@ -41091,7 +41091,7 @@ class MovieView extends _react.Component {
                                                 __self: this,
                                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                                     variant: "outline-dark",
-                                                    className: "value ml-2",
+                                                    className: "value ml-1",
                                                     __source: {
                                                         fileName: "src/components/movie-view/movie-view.jsx",
                                                         lineNumber: 59
@@ -41145,7 +41145,7 @@ class MovieView extends _react.Component {
                                         children: "\xab Back"
                                     }),
                                     !isFavorite ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                        className: "my-4 ml-1",
+                                        className: "my-4 ml-2",
                                         variant: "outline-primary",
                                         onClick: ()=>handleFavorite(movie._id, 'add')
                                         ,
@@ -45462,13 +45462,24 @@ const ProfileView = (props)=>{
         },
         __self: undefined,
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+            /*#__PURE__*/ _jsxRuntime.jsxs("h1", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 29
                 },
                 __self: undefined,
-                children: "My Profile"
+                children: [
+                    "Profile of ",
+                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                        className: "text-info",
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 30
+                        },
+                        __self: undefined,
+                        children: username
+                    })
+                ]
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                 className: "mb-4",
@@ -45476,33 +45487,12 @@ const ProfileView = (props)=>{
                 onClick: goBack,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 30
+                    lineNumber: 32
                 },
                 __self: undefined,
                 children: "\xab Back"
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("h2", {
-                className: "subtitle",
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 33
-                },
-                __self: undefined,
-                children: [
-                    "User: ",
-                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "text-info fw-bold ml-3",
-                        __source: {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 34
-                        },
-                        __self: undefined,
-                        children: username
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("h2", {
-                className: "subtitle",
+            /*#__PURE__*/ _jsxRuntime.jsxs("h3", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 36
@@ -45511,7 +45501,7 @@ const ProfileView = (props)=>{
                 children: [
                     "Email: ",
                     /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                        className: "text-info fw-bold ml-1",
+                        className: "text-info fw-bold ml-4",
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
                             lineNumber: 37
@@ -45521,15 +45511,14 @@ const ProfileView = (props)=>{
                     })
                 ]
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("h2", {
-                className: "subtitle",
+            /*#__PURE__*/ _jsxRuntime.jsxs("h3", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 39
                 },
                 __self: undefined,
                 children: [
-                    "Birthday (mm-dd-yyyy):",
+                    "Birthday:",
                     ' ',
                     /*#__PURE__*/ _jsxRuntime.jsx("span", {
                         className: "text-info fw-bold",
@@ -45539,14 +45528,24 @@ const ProfileView = (props)=>{
                         },
                         __self: undefined,
                         children: `${birthday.slice(5, 7)}-${birthday.slice(8, 10)}-${birthday.slice(0, 4)}`
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                        id: "mini",
+                        className: "ml-2",
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 45
+                        },
+                        __self: undefined,
+                        children: "(mm-dd-yyyy)"
                     })
                 ]
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("h2", {
-                className: "subtitle mt-5",
+                className: "subtitle mt-4",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 46
+                    lineNumber: 49
                 },
                 __self: undefined,
                 children: "LIST OF ♥️ MOVIES:"
@@ -45555,7 +45554,7 @@ const ProfileView = (props)=>{
                 className: "justify-content-center mt-3",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 48
+                    lineNumber: 51
                 },
                 __self: undefined,
                 children: favoriteMovies.map((movieId)=>{
@@ -45566,7 +45565,7 @@ const ProfileView = (props)=>{
                         handleFavorite: handleFavorite,
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 52
+                            lineNumber: 55
                         },
                         __self: undefined,
                         children: movie.title
@@ -45576,17 +45575,17 @@ const ProfileView = (props)=>{
                 className: "subtitle",
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 63
+                    lineNumber: 66
                 },
                 __self: undefined,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
                     className: "text-danger",
                     __source: {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 64
+                        lineNumber: 67
                     },
                     __self: undefined,
-                    children: "You didn't select any favorite movie yet."
+                    children: "You don't have movies in your favorite movies list."
                 })
             })
         ]

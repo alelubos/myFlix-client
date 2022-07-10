@@ -26,24 +26,27 @@ export const ProfileView = (props) => {
 
   return (
     <Container className="mt-4" style={{ width: '80%' }}>
-      <h1>My Profile</h1>
+      <h1>
+        Profile of <span className="text-info">{username}</span>
+      </h1>
       <Button className="mb-4" variant="warning" onClick={goBack}>
         « Back
       </Button>
-      <h2 className="subtitle">
-        User: <span className="text-info fw-bold ml-3">{username}</span>
-      </h2>
-      <h2 className="subtitle">
-        Email: <span className="text-info fw-bold ml-1">{email}</span>
-      </h2>
-      <h2 className="subtitle">
-        Birthday (mm-dd-yyyy):{' '}
+
+      <h3>
+        Email: <span className="text-info fw-bold ml-4">{email}</span>
+      </h3>
+      <h3>
+        Birthday:{' '}
         <span className="text-info fw-bold">{`${birthday.slice(
           5,
           7
         )}-${birthday.slice(8, 10)}-${birthday.slice(0, 4)}`}</span>
-      </h2>
-      <h2 className="subtitle mt-5">LIST OF ♥️ MOVIES:</h2>
+        <span id="mini" className="ml-2">
+          (mm-dd-yyyy)
+        </span>
+      </h3>
+      <h2 className="subtitle mt-4">LIST OF ♥️ MOVIES:</h2>
       {favoriteMovies.length !== 0 ? (
         <Row className="justify-content-center mt-3">
           {favoriteMovies.map((movieId) => {
@@ -62,7 +65,7 @@ export const ProfileView = (props) => {
       ) : (
         <h2 className="subtitle">
           <span className="text-danger">
-            You didn't select any favorite movie yet.
+            You don't have movies in your favorite movies list.
           </span>
         </h2>
       )}

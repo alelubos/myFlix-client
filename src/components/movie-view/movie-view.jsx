@@ -56,7 +56,7 @@ export class MovieView extends Component {
                 <div className="mt-2">
                   <span className="fw-bold">Director: </span>
                   <Link to={`/directors/${movie.director.name}`}>
-                    <Button variant="outline-dark" className="value ml-2">
+                    <Button variant="outline-dark" className="value ml-1">
                       {movie.director.name}
                     </Button>
                   </Link>
@@ -72,7 +72,7 @@ export class MovieView extends Component {
                 </Button>
                 {!isFavorite ? (
                   <Button
-                    className="my-4 ml-1"
+                    className="my-4 ml-2"
                     variant="outline-primary"
                     onClick={() => handleFavorite(movie._id, 'add')}
                   >
