@@ -34,7 +34,8 @@ function user(state = {}, action) {
     case UPDATE_USER:
       return action.value;
     case DELETE_USER:
-      return {};
+      console.log('reducers.js user payload: ', action.value);
+      return action.value;
     case ADD_FAVORITE:
       return {
         ...state,

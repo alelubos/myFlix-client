@@ -32,7 +32,7 @@ export function FavoriteCard(props) {
             variant="outline-danger"
             className="mt-2 ml-auto"
             style={{ width: '100%' }}
-            onClick={() => handleFavorite(movie._id, 'remove')}
+            onClick={() => handleFavorite(movie._id, 'delete')}
           >
             Remove from ♥️
           </Button>

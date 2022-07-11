@@ -17,12 +17,11 @@ import { Container } from 'react-bootstrap';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { LoginView } from '../login-view/login-view';
-//import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { NavBar } from '../nav-bar/nav-bar';
-import { ProfileView } from '../profile-view/profile-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import MoviesList from '../movies-list/movies-list';
+import ProfileView from '../profile-view/profile-view';
 
 // Styles
 import './main-view.scss';
@@ -50,6 +49,7 @@ class MainView extends React.Component {
     const { user } = this.props;
     const { username } = user;
     const accessToken = localStorage.getItem('token');
+
     if (accessToken !== null && username !== null) {
       // Add MovieID to favoriteMovies (in store & webserver)
       if (action === 'add') {
@@ -70,7 +70,7 @@ class MainView extends React.Component {
           });
 
         // Remove MovieID from Favorites (local state & webserver)
-      } else if (action === 'remove') {
+      } else if (action === 'delete') {
         this.props.deleteFavorite(movieId);
         axios
           .delete(
@@ -181,8 +181,6 @@ class MainView extends React.Component {
               if (!username) return <Redirect to="/" />;
               return (
                 <ProfileView
-                  movies={movies}
-                  user={user}
                   handleFavorite={this.handleFavorite}
                   goBack={history.goBack}
                 />
@@ -195,7 +193,7 @@ class MainView extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     movies: state.movies,
     user: state.user,
