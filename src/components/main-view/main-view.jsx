@@ -5,10 +5,15 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // Redux Actions
-import { setMovies } from '../../actions/actions';
+import {
+  setMovies,
+  setUser,
+  addFavorite,
+  deleteFavorite,
+} from '../../actions/actions';
 
 // Components imports
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { LoginView } from '../login-view/login-view';
@@ -23,20 +28,9 @@ import MoviesList from '../movies-list/movies-list';
 import './main-view.scss';
 
 class MainView extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      username: null,
-      favoriteMovies: [],
-    };
-  }
-
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
-        username: localStorage.getItem('username'),
-      });
       this.getMovies(accessToken);
     }
   }
@@ -53,12 +47,13 @@ class MainView extends React.Component {
   }
 
   handleFavorite = (movieId, action) => {
-    const { username, favoriteMovies } = this.state;
+    const { user } = this.props;
+    const { username } = user;
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null && username !== null) {
-      // Add MovieID to Favorites (local state & webserver)
+      // Add MovieID to favoriteMovies (in store & webserver)
       if (action === 'add') {
-        this.setState({ favoriteMovies: [...favoriteMovies, movieId] });
+        this.props.addFavorite(movieId);
         axios
           .post(
             `https://top-flix.herokuapp.com/users/${username}/favorites/${movieId}`,
@@ -76,9 +71,7 @@ class MainView extends React.Component {
 
         // Remove MovieID from Favorites (local state & webserver)
       } else if (action === 'remove') {
-        this.setState({
-          favoriteMovies: favoriteMovies.filter((id) => id !== movieId),
-        });
+        this.props.deleteFavorite(movieId);
         axios
           .delete(
             `https://top-flix.herokuapp.com/users/${username}/favorites/${movieId}`,
@@ -97,18 +90,14 @@ class MainView extends React.Component {
   };
 
   onLoggedIn = (authData) => {
-    const { username, email, birthday, favoriteMovies } = authData.user;
-    this.setState({ username, favoriteMovies: favoriteMovies || [] });
+    this.props.setUser(authData.user);
     localStorage.setItem('token', authData.token);
-    localStorage.setItem('username', username);
-    localStorage.setItem('email', email);
-    localStorage.setItem('birthday', birthday);
     this.getMovies(authData.token);
   };
 
   render() {
-    const { username, favoriteMovies } = this.state;
-    const { movies } = this.props;
+    const { user, movies } = this.props;
+    const { username, favoriteMovies } = user;
 
     if (!movies)
       return (
@@ -193,9 +182,9 @@ class MainView extends React.Component {
               return (
                 <ProfileView
                   movies={movies}
-                  goBack={history.goBack}
-                  favoriteMovies={favoriteMovies || []}
+                  user={user}
                   handleFavorite={this.handleFavorite}
+                  goBack={history.goBack}
                 />
               );
             }}
@@ -207,7 +196,15 @@ class MainView extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-  return { movies: state.movies };
+  return {
+    movies: state.movies,
+    user: state.user,
+  };
 };
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, {
+  setMovies,
+  setUser,
+  addFavorite,
+  deleteFavorite,
+})(MainView);

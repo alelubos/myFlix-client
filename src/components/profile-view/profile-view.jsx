@@ -5,19 +5,22 @@ import { FavoriteCard } from '../favorite-card/favorite-card';
 import './profile-view.scss';
 
 export const ProfileView = (props) => {
-  const { favoriteMovies, goBack, movies, handleFavorite } = props;
-  const username = localStorage.getItem('username');
-  const email = localStorage.getItem('email');
-  const birthday = localStorage.getItem('birthday');
+  const { user, goBack, movies, handleFavorite } = props;
+  const { username, email, birthday, favoriteMovies } = user;
   const token = localStorage.getItem('token');
 
   const deleteAccount = () => {
+    // Implement deleteUser reducer
+    // ...
+
+    // Delete user from webserver
     axios
       .delete(`https://top-flix.herokuapp.com/users/${username}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
         alert(`Your user account was deleted.`);
+        // Clear Token from local storage
         localStorage.clear();
         window.open('/', '_self');
       })
