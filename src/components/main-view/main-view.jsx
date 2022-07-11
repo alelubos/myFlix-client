@@ -1,23 +1,31 @@
+// Utilities imports
 import React from 'react';
 import axios from 'axios';
-import { Container, Row } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+// Redux Actions
+import { setMovies } from '../../actions/actions';
+
+// Components imports
+import { Container, Row } from 'react-bootstrap';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
+//import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { NavBar } from '../nav-bar/nav-bar';
 import { ProfileView } from '../profile-view/profile-view';
 import { RegistrationView } from '../registration-view/registration-view';
+import MoviesList from '../movies-list/movies-list';
 
+// Styles
 import './main-view.scss';
-export default class MainView extends React.Component {
+
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
       username: null,
       favoriteMovies: [],
     };
@@ -39,9 +47,7 @@ export default class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
+        this.props.setMovies(response.data);
       })
       .catch((err) => console.log('Error: ' + err));
   }
@@ -101,7 +107,8 @@ export default class MainView extends React.Component {
   };
 
   render() {
-    const { movies, username, favoriteMovies } = this.state;
+    const { username, favoriteMovies } = this.state;
+    const { movies } = this.props;
 
     if (!movies)
       return (
@@ -111,7 +118,7 @@ export default class MainView extends React.Component {
     return (
       <Router>
         <NavBar user={username} />
-        <Container fluid>
+        <Container>
           <Route
             exact
             path="/"
@@ -121,15 +128,7 @@ export default class MainView extends React.Component {
                 return <LoginView onLoggedIn={this.onLoggedIn} />;
               }
               // If a user is logged the Movies are rendered as MovieCards
-              return (
-                <Row className="main-view-width mx-auto justify-content-center mt-3">
-                  {movies.map((movie) => (
-                    <MovieCard key={movie._id} movie={movie}>
-                      {movie.title}
-                    </MovieCard>
-                  ))}
-                </Row>
-              );
+              return <MoviesList movies={movies} />;
             }}
           />
 
@@ -206,3 +205,9 @@ export default class MainView extends React.Component {
     );
   }
 }
+
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
+
+export default connect(mapStateToProps, { setMovies })(MainView);

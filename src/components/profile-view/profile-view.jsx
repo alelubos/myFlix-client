@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Container, Row } from 'react-bootstrap';
 import { FavoriteCard } from '../favorite-card/favorite-card';
-import '../profile-view/profile-view.scss';
+import './profile-view.scss';
 
 export const ProfileView = (props) => {
   const { favoriteMovies, goBack, movies, handleFavorite } = props;
@@ -25,7 +25,7 @@ export const ProfileView = (props) => {
   };
 
   return (
-    <Container className="mt-4" style={{ width: '80%' }}>
+    <Container className="mt-4">
       <h1>
         Profile of <span className="text-info">{username}</span>
       </h1>

@@ -10,15 +10,16 @@ export class MovieView extends Component {
     const { movie, goBack, isFavorite, handleFavorite } = this.props;
     if (!movie) return <div></div>;
     return (
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mt-5">
         <Col
-          className="container p-3 justify-content-center"
-          md={9}
-          lg={7}
-          xl={6}
+          className="container justify-content-center"
+          xs={12}
+          md={10}
+          lg={9}
+          xl={8}
         >
           <Row className="justify-content-start">
-            <Col sm={6}>
+            <Col sm={5}>
               <img
                 crossOrigin="anonymous"
                 className="poster"
@@ -26,7 +27,7 @@ export class MovieView extends Component {
                 alt="Poster from the movie"
               />
             </Col>
-            <Col sm={6}>
+            <Col sm={7}>
               <div className="mt-2">
                 <div className="title">{movie.title} </div>
 
