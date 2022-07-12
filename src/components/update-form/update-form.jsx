@@ -61,17 +61,17 @@ export function UpdateForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('handleSubmit, event: ', event.target.value);
+    const token = localStorage.getItem('token');
+    console.log('handleSubmit, event.target.value: ', event.target.value);
     const isReq = validate();
     if (isReq) {
-      console.log(event.target.value);
       let updatedUser = {
-        username,
+        username: username,
         password: newPassword,
         email: newEmail,
         birthday: newBirthday,
       };
-      handleUpdateUser(updatedUser);
+      handleUpdateUser(updatedUser, token);
     }
   };
 

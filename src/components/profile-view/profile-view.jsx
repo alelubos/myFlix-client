@@ -37,31 +37,37 @@ function ProfileView(props) {
     }
   };
 
-  const handleUpdateUser = (updatedUser) => {
+  const handleUpdateUser = (updatedUser, token) => {
     console.log('Updated user from handleUpdateUser: ', updatedUser);
     const { username } = updatedUser;
-    const accessToken = localStorage.getItem('token');
-    // Dispatch updateUser() action
-
-    // Update user data in webserver
-    axios
-      .put(
-        `https://top-flix.herokuapp.com/users/${username}`,
-        { ...updatedUser },
-        {
-          Headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      )
-      .then((response) => {
-        const data = response.data;
-        console.log('response data from axios in handleUpdateUser: ', data);
-        document.alert('User info updated');
-        window.open(`/users/${username}`, '_self');
-      })
-      .catch((err) => {
-        console.log('error updating the user:', err);
-      });
-    window.open('/', '_self');
+    if (username && updatedUser && token) {
+      // Update user data in webserver
+      axios
+        .put(
+          `https://top-flix.herokuapp.com/users/${username}`,
+          { ...updatedUser },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          const data = response.data;
+          console.log('response data from axios in handleUpdateUser: ', data);
+          // Dispatch action to update store.user
+          updateUser({ ...updatedUser, favoriteMovies });
+          console.log('after updatUser action, user: ', user);
+          alert(
+            'User info updated. Please Login again with your new credentials.'
+          );
+          window.open(`/`, '_self');
+        })
+        .catch((err) => {
+          console.log('error updating the user:', err);
+        });
+    }
   };
 
   return (
