@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
     "watch": "parcel watch",
-    "build": "parcel build"
+    "build": "parcel build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages-d build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,8 @@
   "bugs": {
     "url": "https://github.com/alelubos/myFlix-client/issues"
   },
-  "homepage": "https://github.com/alelubos/myFlix-client#readme",
+  //"homepage": "https://github.com/alelubos/myFlix-client#readme",
+  "homepage": "https://alelubos.github.io/myFlix-client/",
   "dependencies": {
     "axios": "^0.27.2",
     "prop-types": "^15.8.1",
@@ -30,6 +33,7 @@
     "redux": "^4.2.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0"
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "gh-pages": "^4.0.0"
   }
 }
