@@ -20,8 +20,7 @@
   "bugs": {
     "url": "https://github.com/alelubos/myFlix-client/issues"
   },
-  //"homepage": "https://github.com/alelubos/myFlix-client#readme",
-  "homepage": "https://alelubos.github.io/myFlix-client/",
+  "homepage": "https://github.com/alelubos/myFlix-client#readme",
   "dependencies": {
     "axios": "^0.27.2",
     "prop-types": "^15.8.1",
