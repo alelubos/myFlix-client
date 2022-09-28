@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
     "watch": "parcel watch",
-    "build": "parcel build"
+    "build": "parcel build",
+    "predeploy": "rm -rf dist && parcel build --public-url 'https://github.com/alelubos/myFlix-client'",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0"
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "gh-pages": "^4.0.0"
   }
 }
