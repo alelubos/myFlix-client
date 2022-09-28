@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+//import { devToolsEnhancer } from 'redux-devtools/extension';
 
 import moviesApp from './reducers/reducers';
 
@@ -12,7 +12,7 @@ import MainView from './components/main-view/main-view';
 import './index.scss';
 
 // Initialize the store passing it the combined reducers
-const store = createStore(moviesApp, devToolsEnhancer());
+const store = createStore(moviesApp /*, devToolsEnhancer() */);
 
 // Main Component (is passed the store, accessible to all tree)
 class MyFlixApplication extends React.Component {
