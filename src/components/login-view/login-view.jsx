@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { page } from '../../variables';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -53,45 +54,45 @@ export function LoginView(props) {
   };
 
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-sm-center">
+    <Container className='mt-5'>
+      <Row className='justify-content-sm-center'>
         <Col xs={12} sm={9} md={7} lg={6} xl={5}>
-          <Card variant="light" bg="light">
+          <Card variant='light' bg='light'>
             <Card.Body>
               <h1>Log In</h1>
               <Form>
-                <Form.Group className="mt-4 mb-3">
+                <Form.Group className='mt-4 mb-3'>
                   <Form.Label>Username</Form.Label>
                   <Form.Control
-                    type="text"
+                    type='text'
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
-                    placeholder="Enter you username"
+                    placeholder='Enter you username'
                   />
                   {/* Code to Display username validation error */}
                   {usernameErr && (
-                    <p className="validation-message">{usernameErr}</p>
+                    <p className='validation-message'>{usernameErr}</p>
                   )}
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className='mb-3'>
                   <Form.Label>Password</Form.Label>
                   <Form.Control
-                    type="password"
+                    type='password'
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    placeholder="Enter your password"
+                    placeholder='Enter your password'
                   />
                   {/* Code to Display password validation error */}
                   {passwordErr && (
-                    <p className="validation-message">{passwordErr}</p>
+                    <p className='validation-message'>{passwordErr}</p>
                   )}
                 </Form.Group>
 
                 <Button
-                  variant="primary"
-                  className="mt-3"
-                  type="submit"
+                  variant='primary'
+                  className='mt-3'
+                  type='submit'
                   onClick={handleSubmit}
                 >
                   Submit
@@ -100,8 +101,8 @@ export function LoginView(props) {
             </Card.Body>
 
             <Card.Footer>
-              <Link to="/register">
-                <Button className="ma-0 col-10 offset-1" variant="link">
+              <Link to={`${page}/register`}>
+                <Button className='ma-0 col-10 offset-1' variant='link'>
                   Not Registered? Sign Up
                 </Button>
               </Link>

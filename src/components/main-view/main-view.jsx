@@ -25,6 +25,7 @@ import ProfileView from '../profile-view/profile-view';
 
 // Styles
 import './main-view.scss';
+import { page } from '../../variables';
 
 class MainView extends React.Component {
   componentDidMount() {
@@ -101,7 +102,7 @@ class MainView extends React.Component {
 
     if (!movies)
       return (
-        <div className="main-view">The list is empty. Loading info...</div>
+        <div className='main-view'>The list is empty. Loading info...</div>
       );
 
     return (
@@ -110,7 +111,7 @@ class MainView extends React.Component {
         <Container>
           <Route
             exact
-            path="/"
+            path={`${page}/`}
             render={() => {
               // If there's no user, the LoginView is rendered.
               if (!username) {
@@ -122,15 +123,15 @@ class MainView extends React.Component {
           />
 
           <Route
-            path="/register"
+            path={`${page}/register`}
             render={() => {
-              if (username) return <Redirect to="/" />;
+              if (username) return <Redirect to='/' />;
               return <RegistrationView />;
             }}
           />
 
           <Route
-            path="/movies/:movieId"
+            path={`${page}/movies/:movieId`}
             render={({ match, history }) => (
               <MovieView
                 movie={movies.find((m) => m._id === match.params.movieId)}
@@ -142,7 +143,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path="/directors/:directorName"
+            path={`${page}/directors/:directorName`}
             render={({ match, history }) => (
               <DirectorView
                 director={
@@ -159,7 +160,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path="/genres/:genreName"
+            path={`${page}/genres/:genreName`}
             render={({ match, history }) => (
               <GenreView
                 genreMovies={movies.filter(
@@ -176,9 +177,9 @@ class MainView extends React.Component {
           />
 
           <Route
-            path={`/users/${username}`}
+            path={`${page}/users/${username}`}
             render={({ history }) => {
-              if (!username) return <Redirect to="/" />;
+              if (!username) return <Redirect to='/' />;
               return (
                 <ProfileView
                   handleFavorite={this.handleFavorite}

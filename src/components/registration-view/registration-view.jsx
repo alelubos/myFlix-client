@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { page } from '../../variables';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -100,79 +101,79 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-sm-center">
+    <Container className='mt-5'>
+      <Row className='justify-content-sm-center'>
         <Col xs={12} sm={9} md={7} lg={6} xl={5}>
-          <Card variant="light" bg="light">
+          <Card variant='light' bg='light'>
             <Card.Body>
               <h1>Sign Up</h1>
               <Form>
-                <Form.Group className="mt-4 mb-3">
+                <Form.Group className='mt-4 mb-3'>
                   <Form.Label>Username</Form.Label>
                   <Form.Control
-                    type="text"
+                    type='text'
                     value={username}
                     onChange={(event) => setUsername(event.target.value)}
-                    placeholder="Enter your username"
+                    placeholder='Enter your username'
                   />
                   {values.usernameErr && (
-                    <p className="validation-message">{values.usernameErr}</p>
+                    <p className='validation-message'>{values.usernameErr}</p>
                   )}
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className='mb-3'>
                   <Form.Label>Password</Form.Label>
                   <Form.Control
-                    type="password"
+                    type='password'
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
-                    placeholder="Enter your password"
+                    placeholder='Enter your password'
                   />
                   {values.passwordErr && (
-                    <p className="validation-message">{values.passwordErr}</p>
+                    <p className='validation-message'>{values.passwordErr}</p>
                   )}
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className='mb-3'>
                   <Form.Label>Email</Form.Label>
                   <Form.Control
-                    type="email"
+                    type='email'
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    placeholder="Enter your email"
+                    placeholder='Enter your email'
                   />
                   {values.emailErr && (
-                    <p className="validation-message">{values.emailErr}</p>
+                    <p className='validation-message'>{values.emailErr}</p>
                   )}
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className='mb-3'>
                   <Form.Label>Birthdate</Form.Label>
                   <Form.Control
-                    type="date"
+                    type='date'
                     value={birthday}
                     onChange={(event) => setBirthday(event.target.value)}
                     // placeholder="Enter your birthdate."
                     // pattern="/^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/"
                   />
                   {values.birthdayErr && (
-                    <p className="validation-message">{values.birthdayErr}</p>
+                    <p className='validation-message'>{values.birthdayErr}</p>
                   )}
                 </Form.Group>
 
                 <Button
-                  className="mt-3"
-                  type="submit"
-                  variant="success"
+                  className='mt-3'
+                  type='submit'
+                  variant='success'
                   onClick={handleSubmit}
                 >
                   Submit
                 </Button>
               </Form>
             </Card.Body>
-            <Card.Footer className="pr-0 my-0">
-              <Link to="/">
-                <Button className="col-10 offset-1" variant="link">
+            <Card.Footer className='pr-0 my-0'>
+              <Link to={`${page}/`}>
+                <Button className='col-10 offset-1' variant='link'>
                   Already registered? Log In
                 </Button>
               </Link>

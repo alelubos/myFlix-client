@@ -71,17 +71,17 @@ function ProfileView(props) {
   };
 
   return (
-    <Container className="mt-4">
+    <Container className='mt-4'>
       <h1>
-        Profile of <span className="text-info">{username}</span>
+        Profile of <span className='text-info'>{username}</span>
       </h1>
-      <div className="d-flex">
-        <Button className="mb-4" variant="warning" onClick={goBack}>
+      <div className='d-flex'>
+        <Button className='mb-4' variant='warning' onClick={goBack}>
           « Back
         </Button>
         <Button
-          className="mb-4 ml-2"
-          variant="info"
+          className='mb-4 ml-2'
+          variant='info'
           onClick={() => {
             setShowForm(!showForm);
           }}
@@ -89,8 +89,8 @@ function ProfileView(props) {
           {!showForm ? 'UPDATE Profile' : 'SHOW Profile'}
         </Button>
         <Button
-          className="mb-4 ml-2"
-          variant="danger"
+          className='mb-4 ml-2'
+          variant='danger'
           onClick={handleDeleteUser}
         >
           DELETE Profile
@@ -99,15 +99,15 @@ function ProfileView(props) {
       {!showForm ? (
         <>
           <h3>
-            Email: <span className="text-info fw-bold ml-4">{email}</span>
+            Email: <span className='text-info fw-bold ml-4'>{email}</span>
           </h3>
           <h3>
             Birthday:{' '}
-            <span className="text-info fw-bold">{`${birthday.slice(
+            <span className='text-info fw-bold'>{`${birthday.slice(
               5,
               7
             )}-${birthday.slice(8, 10)}-${birthday.slice(0, 4)}`}</span>
-            <span id="mini" className="ml-2">
+            <span id='mini' className='ml-2'>
               (mm-dd-yyyy)
             </span>
           </h3>
@@ -116,9 +116,9 @@ function ProfileView(props) {
         <UpdateForm user={user} handleUpdateUser={handleUpdateUser} />
       )}
 
-      <h2 className="subtitle mt-4">LIST OF ♥️ MOVIES:</h2>
+      <h2 className='subtitle mt-4'>LIST OF ♥️ MOVIES:</h2>
       {favoriteMovies.length !== 0 ? (
-        <Row className="justify-content-center mt-3">
+        <Row className='justify-content-center mt-3'>
           {favoriteMovies.map((movieId) => {
             let movie = movies.find((m) => m._id === movieId);
             return (
@@ -133,8 +133,8 @@ function ProfileView(props) {
           })}
         </Row>
       ) : (
-        <h2 className="subtitle">
-          <span className="text-danger">
+        <h2 className='subtitle'>
+          <span className='text-danger'>
             You don't have movies in your favorite movies list.
           </span>
         </h2>

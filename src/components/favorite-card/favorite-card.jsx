@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './favorite-card.scss';
+import { page } from '../../variables';
 
 export function FavoriteCard(props) {
   const { movie, handleFavorite } = props;
@@ -14,23 +15,23 @@ export function FavoriteCard(props) {
       md={{ span: 5, offset: 0 }}
       lg={4}
       xl={3}
-      className="mb-3"
+      className='mb-3'
     >
-      <Card className="my-1">
-        <Link to={`/movies/${movie._id}`}>
+      <Card className='my-1'>
+        <Link to={`${page}/movies/${movie._id}`}>
           <Card.Img
-            crossOrigin="anonymous"
+            crossOrigin='anonymous'
             src={movie.imageURL}
-            className="poster position-relative"
+            className='poster position-relative'
           />
         </Link>{' '}
-        <Card.Body className="d-grid gap-2">
-          <p className="card-title mb-2">{movie.title} </p>
-          <span className="card-year">({movie.releaseYear})</span>
+        <Card.Body className='d-grid gap-2'>
+          <p className='card-title mb-2'>{movie.title} </p>
+          <span className='card-year'>({movie.releaseYear})</span>
 
           <Button
-            variant="outline-danger"
-            className="mt-2 ml-auto"
+            variant='outline-danger'
+            className='mt-2 ml-auto'
             style={{ width: '100%' }}
             onClick={() => handleFavorite(movie._id, 'delete')}
           >

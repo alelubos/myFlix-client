@@ -8,7 +8,7 @@
     "start": "parcel",
     "watch": "parcel watch",
     "build": "parcel build",
-    "predeploy": "rmdir /Q /S dist && parcel build --public-url https://alelubos.github.io/myFlix-client/",
+    "predeploy": "rmdir /Q /S dist && parcel build --public-url ./",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
