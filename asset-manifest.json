@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/myFlix-client/static/css/main.30ea7c3e.css",
-    "main.js": "/myFlix-client/static/js/main.502e193e.js",
+    "main.js": "/myFlix-client/static/js/main.90dc4f2f.js",
     "index.html": "/myFlix-client/index.html",
     "main.30ea7c3e.css.map": "/myFlix-client/static/css/main.30ea7c3e.css.map",
-    "main.502e193e.js.map": "/myFlix-client/static/js/main.502e193e.js.map"
+    "main.90dc4f2f.js.map": "/myFlix-client/static/js/main.90dc4f2f.js.map"
   },
   "entrypoints": [
     "static/css/main.30ea7c3e.css",
-    "static/js/main.502e193e.js"
+    "static/js/main.90dc4f2f.js"
   ]
 }
