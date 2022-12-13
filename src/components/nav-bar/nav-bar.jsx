@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './nav-bar.scss';
-import { page } from '../../variables';
 
 export const NavBar = ({ user }) => {
   const getToken = () => {
@@ -12,7 +11,7 @@ export const NavBar = ({ user }) => {
 
   const logOut = () => {
     localStorage.clear();
-    window.open(`${page}/`, '_self');
+    window.open(`/`, '_self');
   };
 
   return (
@@ -25,7 +24,7 @@ export const NavBar = ({ user }) => {
     >
       <Container>
         <Navbar.Brand>
-          <Link className='nav-link' to={`${page}/`}>
+          <Link className='nav-link' to={`/`}>
             <svg
               className='logo'
               viewBox='0 0 210 40'
@@ -50,13 +49,13 @@ export const NavBar = ({ user }) => {
           className='justify-content-end'
         >
           <Nav className='justify-content-end'>
-            <Link className='nav-link mr-2' to={`${page}/`}>
+            <Link className='nav-link mr-2' to={`/`}>
               Movies
             </Link>
             {getToken() ? (
               <>
                 {' '}
-                <Link className='nav-link mr-2' to={`${page}/users/${user}`}>
+                <Link className='nav-link mr-2' to={`/users/${user}`}>
                   Profile
                 </Link>
                 <p className='nav-link' onClick={logOut}>
@@ -66,7 +65,7 @@ export const NavBar = ({ user }) => {
             ) : (
               <>
                 {' '}
-                <Link className='nav-link' to={`${page}/register`}>
+                <Link className='nav-link' to={`/register`}>
                   Sign Up
                 </Link>
               </>

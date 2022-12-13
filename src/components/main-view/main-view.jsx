@@ -25,7 +25,6 @@ import ProfileView from '../profile-view/profile-view';
 
 // Styles
 import './main-view.scss';
-import { page } from '../../variables';
 
 class MainView extends React.Component {
   componentDidMount() {
@@ -37,7 +36,7 @@ class MainView extends React.Component {
 
   getMovies(token) {
     axios
-      .get('https://top-flix.herokuapp.com/movies', {
+      .get('https://careful-teal-bighorn-sheep.cyclic.app/movies', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -57,7 +56,7 @@ class MainView extends React.Component {
         this.props.addFavorite(movieId);
         axios
           .post(
-            `https://top-flix.herokuapp.com/users/${username}/favorites/${movieId}`,
+            `https://careful-teal-bighorn-sheep.cyclic.app/users/${username}/favorites/${movieId}`,
             {},
             {
               headers: { Authorization: `Bearer ${accessToken}` },
@@ -75,7 +74,7 @@ class MainView extends React.Component {
         this.props.deleteFavorite(movieId);
         axios
           .delete(
-            `https://top-flix.herokuapp.com/users/${username}/favorites/${movieId}`,
+            `https://careful-teal-bighorn-sheep.cyclic.app/users/${username}/favorites/${movieId}`,
             {
               headers: { Authorization: `Bearer ${accessToken}` },
             }
@@ -111,7 +110,7 @@ class MainView extends React.Component {
         <Container>
           <Route
             exact
-            path={`${page}/`}
+            path={`/`}
             render={() => {
               // If there's no user, the LoginView is rendered.
               if (!username) {
@@ -123,7 +122,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path={`${page}/register`}
+            path={`/register`}
             render={() => {
               if (username) return <Redirect to='/' />;
               return <RegistrationView />;
@@ -131,7 +130,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path={`${page}/movies/:movieId`}
+            path={`/movies/:movieId`}
             render={({ match, history }) => (
               <MovieView
                 movie={movies.find((m) => m._id === match.params.movieId)}
@@ -143,7 +142,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path={`${page}/directors/:directorName`}
+            path={`/directors/:directorName`}
             render={({ match, history }) => (
               <DirectorView
                 director={
@@ -160,7 +159,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path={`${page}/genres/:genreName`}
+            path={`/genres/:genreName`}
             render={({ match, history }) => (
               <GenreView
                 genreMovies={movies.filter(
@@ -177,7 +176,7 @@ class MainView extends React.Component {
           />
 
           <Route
-            path={`${page}/users/${username}`}
+            path={`/users/${username}`}
             render={({ history }) => {
               if (!username) return <Redirect to='/' />;
               return (

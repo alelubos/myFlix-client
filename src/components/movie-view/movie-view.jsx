@@ -4,7 +4,6 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import './movie-view.scss';
-import { page } from '../../variables';
 export class MovieView extends Component {
   render() {
     const { movie, goBack, isFavorite, handleFavorite } = this.props;
@@ -44,7 +43,7 @@ export class MovieView extends Component {
 
                 <div className='mt-3'>
                   <span className='fw-bold'>Genre: </span>
-                  <Link to={`${page}/genres/${movie.genre.name}`}>
+                  <Link to={`/genres/${movie.genre.name}`}>
                     <Button
                       variant='outline-dark'
                       className='ml-4 value text-uppercase'
@@ -56,7 +55,7 @@ export class MovieView extends Component {
 
                 <div className='mt-2'>
                   <span className='fw-bold'>Director: </span>
-                  <Link to={`${page}/directors/${movie.director.name}`}>
+                  <Link to={`/directors/${movie.director.name}`}>
                     <Button variant='outline-dark' className='value ml-1'>
                       {movie.director.name}
                     </Button>

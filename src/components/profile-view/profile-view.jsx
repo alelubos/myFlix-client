@@ -17,15 +17,18 @@ function ProfileView(props) {
   const handleDeleteUser = () => {
     const accessToken = localStorage.getItem('token');
     if (username && accessToken) {
-      let sure = confirm(
+      let sure = alert(
         'Are you sure? This action is irreversible and will ERASE your account.'
       );
       if (!sure) return;
       // request to Delete user from webserver
       axios
-        .delete(`https://top-flix.herokuapp.com/users/${email}`, {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        })
+        .delete(
+          `https://careful-teal-bighorn-sheep.cyclic.app/users/${email}`,
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          }
+        )
         .then((res) => {
           // Clear Token from local storage
           localStorage.clear();
@@ -44,7 +47,7 @@ function ProfileView(props) {
       // Update user data in webserver
       axios
         .put(
-          `https://top-flix.herokuapp.com/users/${username}`,
+          `https://careful-teal-bighorn-sheep.cyclic.app/users/${username}`,
           { ...updatedUser },
           {
             headers: {
@@ -116,7 +119,7 @@ function ProfileView(props) {
         <UpdateForm user={user} handleUpdateUser={handleUpdateUser} />
       )}
 
-      <h2 className='subtitle mt-4'>LIST OF ♥️ MOVIES:</h2>
+      <h2 className='subtitle mt-4'>FAVORITE MOVIES:</h2>
       {favoriteMovies.length !== 0 ? (
         <Row className='justify-content-center mt-3'>
           {favoriteMovies.map((movieId) => {

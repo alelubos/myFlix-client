@@ -6,13 +6,13 @@ import { setFilter } from '../../actions/actions';
 
 function VisibilityFilterInput(props) {
   return (
-    <div className="mb-3">
+    <div className='mb-3'>
       <Form.Label>Search Titles:</Form.Label>
 
       <Form.Control
         onChange={(e) => props.setFilter(e.target.value)}
         value={props.visibilityFilter}
-        placeholder="filter"
+        placeholder='filter'
       />
     </div>
   );

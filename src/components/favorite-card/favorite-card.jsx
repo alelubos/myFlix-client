@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './favorite-card.scss';
-import { page } from '../../variables';
 
 export function FavoriteCard(props) {
   const { movie, handleFavorite } = props;
@@ -18,7 +16,7 @@ export function FavoriteCard(props) {
       className='mb-3'
     >
       <Card className='my-1'>
-        <Link to={`${page}/movies/${movie._id}`}>
+        <Link to={`/movies/${movie._id}`}>
           <Card.Img
             crossOrigin='anonymous'
             src={movie.imageURL}

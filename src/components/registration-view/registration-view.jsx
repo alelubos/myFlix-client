@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { page } from '../../variables';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -66,7 +65,7 @@ export function RegistrationView(props) {
       setValues((prevValues) => {
         return { ...prevValues, emailErr: 'Enter a valid email address.' };
       });
-      isReg = false;
+      isReq = false;
     }
     if (!birthday) {
       setValues((prevValues) => {
@@ -83,7 +82,7 @@ export function RegistrationView(props) {
     if (isReq) {
       // Send a POST request to /users endpoint to register & getting credentials
       axios
-        .post('https://top-flix.herokuapp.com/users', {
+        .post('https://careful-teal-bighorn-sheep.cyclic.app/users', {
           username: username,
           password: password,
           email: email,
@@ -95,7 +94,7 @@ export function RegistrationView(props) {
           window.open('/', '_self');
         })
         .catch((e) => {
-          console.log('error registering the user.');
+          alert('error registering the user.');
         });
     }
   };
@@ -172,7 +171,7 @@ export function RegistrationView(props) {
               </Form>
             </Card.Body>
             <Card.Footer className='pr-0 my-0'>
-              <Link to={`${page}/`}>
+              <Link to={`/`}>
                 <Button className='col-10 offset-1' variant='link'>
                   Already registered? Log In
                 </Button>

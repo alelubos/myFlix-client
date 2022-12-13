@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { page } from '../../variables';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -39,7 +38,7 @@ export function LoginView(props) {
     if (isReq) {
       /* Send a request to the server for authentication */
       axios
-        .post('https://top-flix.herokuapp.com/login', {
+        .post('https://careful-teal-bighorn-sheep.cyclic.app/login', {
           username: username,
           password: password,
         })
@@ -101,7 +100,7 @@ export function LoginView(props) {
             </Card.Body>
 
             <Card.Footer>
-              <Link to={`${page}/register`}>
+              <Link to={`/register`}>
                 <Button className='ma-0 col-10 offset-1' variant='link'>
                   Not Registered? Sign Up
                 </Button>

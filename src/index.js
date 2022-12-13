@@ -2,14 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-//import { devToolsEnhancer } from 'redux-devtools/extension';
 
 import moviesApp from './reducers/reducers';
-
 import MainView from './components/main-view/main-view';
-
-// Import statement to indicate that you need to bundle `./index.scss`
-import './index.scss';
+import './index.css';
+// import reportWebVitals from './reportWebVitals';
 
 // Initialize the store passing it the combined reducers
 const store = createStore(moviesApp /*, devToolsEnhancer() */);
